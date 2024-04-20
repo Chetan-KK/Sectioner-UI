@@ -2,7 +2,9 @@ import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
-  logo: <span>Sectioner UI</span>,
+  logo: (
+    <h1 style={{ fontWeight: "bold", fontSize: "1.2rem" }}>Sectioner UI</h1>
+  ),
   project: {
     link: "https://github.com/chetan-kk/Sectioner-UI",
   },
@@ -11,7 +13,12 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: "https://github.com/chetan-kk/Sectioner-UI",
   footer: {
-    text: "Sectioner UI",
+    component: <footer></footer>,
+  },
+  useNextSeoProps() {
+    return {
+      titleTemplate: "%s - Sectioner UI",
+    };
   },
 };
 
