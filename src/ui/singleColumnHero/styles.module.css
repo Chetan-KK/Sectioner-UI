@@ -1,41 +1,81 @@
 .hero {
-    padding: 10rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-  }
-  .heading {
-    background: -webkit-linear-gradient(
-      250deg,
-      var(--secondary),
-      var(--secondary-forground)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-    font-size: 5.3rem;
-  }
+  padding: 10rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.heading {
+  background: -webkit-linear-gradient(
+    250deg,
+    hsl(var(--secondary)),
+    hsl(var(--secondary-forground))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: calc(1.3rem + 4vw);
+  text-align: center;
+  font-weight: 700;
+  font-family: var(--ff-poppins);
+}
+
+.subHeading {
+  width: 45rem;
+  color: hsl(var(--sub-text));
+  text-align: center;
+  font-family: var(--ff-poppins);
+}
+
+.button {
+  padding: 0.6rem 2.5rem;
+  color: inherit;
+  white-space: nowrap;
+  text-decoration: none;
+  margin-top: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 100px;
+  background-image: linear-gradient(
+    -30deg,
+    hsl(var(--primary)),
+    hsl(var(--primary-forground))
+  );
+  color: hsl(var(--text));
+  transform: translateY(0);
+  transition: box-shadow 250ms, transform 250ms;
+  font-family: var(--ff-poppins);
+}
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 20px -5px hsl(var(--primary));
+}
+
+@media screen and (max-width: 750px) {
   .subHeading {
-    width: 50vw;
-    text-align: center;
+    width: 80vw;
+    font-size: 0.9rem;
   }
   .button {
-    padding: 0.7rem 2.5rem;
-  
-    color: inherit;
-    text-decoration: none;
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 100px;
-    background-image: linear-gradient(
-      -30deg,
-      var(--primary),
-      var(--primary-forground)
-    );
-    color: white;
+    padding: 0.5rem 2rem;
   }
-  
+}
+
+@media screen and (max-width: 450px) {
+  .hero {
+    align-items: flex-start;
+    padding: 10rem 1rem;
+  }
+  .heading {
+    text-align: left;
+  }
+  .subHeading {
+    font-size: 0.8rem;
+    text-align: left;
+  }
+  .button {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+}

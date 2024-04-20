@@ -9,18 +9,32 @@ Fully Responsive single column hero section
 
 ## preview
 <SingleColumnHero
-  heading="Chetan Khulage"
-  subHeading="I love to work on front-end of web and i mostly work with THREE js for 3D web development, i have worked on web development from around 3 years"
+  heading="Sectioner UI"
+  subHeading="Welcome to Sectioner UI, a modern UI library designed to make your web designing faster! this UI library contains jsx and module.css code sections!"
   buttonUrl="/explore"
-  buttonText="explore my Projects"
+  buttonText="Explore library"
 />
+
+## code
 
 import { Tabs } from "nextra/components";
 
-<Tabs items={['jsx', 'css']}>
+<Tabs items={['access','jsx', 'css']}>
+  <Tabs.Tab>
+  
+```jsx showLineNumbers filename="components/singleColumnHero/SingleColumnHero.jsx" copy
+<SingleColumnHero
+  heading="Sectioner UI"
+  subHeading="Welcome to Sectioner UI, a modern UI library designed to make your web designing faster! this UI library contains jsx and module.css code sections!"
+  buttonUrl="/explore"
+  buttonText="Explore library"
+/>
+```
+  </Tabs.Tab>
   <Tabs.Tab>
 
 ```jsx showLineNumbers filename="components/singleColumnHero/SingleColumnHero.jsx" copy
+import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
 const SingleColumnHero = ({
@@ -34,7 +48,9 @@ const SingleColumnHero = ({
     <div className={`${styles.hero} ${className}`}>
       <h1 className={styles.heading}>{heading}</h1>
       <p className={styles.subHeading}>{subHeading}</p>
-      <button className={styles.button}>{buttonText}</button>
+      <Link className={styles.button} to={buttonUrl}>
+        {buttonText}
+      </Link>
     </div>
   );
 };
@@ -57,34 +73,74 @@ export default SingleColumnHero;
   .heading {
     background: -webkit-linear-gradient(
       250deg,
-      var(--secondary),
-      var(--secondary-forground)
+      hsl(var(--secondary)),
+      hsl(var(--secondary-forground))
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 5.3rem;
+    font-size: calc(1.3rem + 4vw);
+    text-align: center;
+    font-weight: 700;
+    font-family: var(--ff-poppins);
   }
 
   .subHeading {
-    width: 50vw;
+    width: 45rem;
+    color: hsl(var(--sub-text));
     text-align: center;
+    font-family: var(--ff-poppins);
   }
 
   .button {
-    padding: 0.7rem 2.5rem;
+    padding: 0.6rem 2.5rem;
     color: inherit;
+    white-space: nowrap;
     text-decoration: none;
-    margin-top: 1rem;
-    font-size: 1rem;
+    margin-top: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     border-radius: 100px;
     background-image: linear-gradient(
       -30deg,
-      var(--primary),
-      var(--primary-forground)
+      hsl(var(--primary)),
+      hsl(var(--primary-forground))
     );
-    color: white;
+    color: hsl(var(--text));
+    transform: translateY(0);
+    transition: box-shadow 250ms, transform 250ms;
+    font-family: var(--ff-poppins);
+  }
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 20px -5px hsl(var(--primary));
+  }
+
+  @media screen and (max-width: 750px) {
+    .subHeading {
+      width: 80vw;
+      font-size: 0.9rem;
+    }
+    .button {
+      padding: 0.5rem 2rem;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .hero {
+      align-items: flex-start;
+      padding: 10rem 1rem;
+    }
+    .heading {
+      text-align: left;
+    }
+    .subHeading {
+      font-size: 0.8rem;
+      text-align: left;
+    }
+    .button {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+    }
   }
 ```
   </Tabs.Tab>

@@ -1,3 +1,4 @@
+// import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
 const SingleColumnHero = ({
@@ -11,7 +12,9 @@ const SingleColumnHero = ({
     <div className={`${styles.hero} ${className}`}>
       <h1 className={styles.heading}>{heading}</h1>
       <p className={styles.subHeading}>{subHeading}</p>
-      <button className={styles.button}>{buttonText}</button>
+      <div className={styles.button}>
+        {buttonText}
+      </div>
     </div>
   );
 };
