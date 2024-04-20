@@ -1,0 +1,94 @@
+# Single Column hero
+
+import SingleColumnHero from "&/components/singleColumnHero/SingleColumnHero";
+
+## Overview 
+
+Fully Responsive single column hero section
+
+
+## preview
+<SingleColumnHero
+  heading="Chetan Khulage"
+  subHeading="I love to work on front-end of web and i mostly work with THREE js for 3D web development, i have worked on web development from around 3 years"
+  buttonUrl="/explore"
+  buttonText="explore my Projects"
+/>
+
+import { Tabs } from "nextra/components";
+
+<Tabs items={['jsx', 'css']}>
+  <Tabs.Tab>
+
+```jsx showLineNumbers filename="components/singleColumnHero/SingleColumnHero.jsx" copy
+import styles from "./styles.module.css";
+
+const SingleColumnHero = ({
+  heading,
+  subHeading,
+  buttonUrl,
+  buttonText,
+  className,
+}) => {
+  return (
+    <div className={`${styles.hero} ${className}`}>
+      <h1 className={styles.heading}>{heading}</h1>
+      <p className={styles.subHeading}>{subHeading}</p>
+      <button className={styles.button}>{buttonText}</button>
+    </div>
+  );
+};
+
+export default SingleColumnHero;
+```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+  ```css showLineNumbers filename="components/singleColumnHero/styles.module.css" copy
+  .hero {
+    padding: 10rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .heading {
+    background: -webkit-linear-gradient(
+      250deg,
+      var(--secondary),
+      var(--secondary-forground)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 5.3rem;
+  }
+
+  .subHeading {
+    width: 50vw;
+    text-align: center;
+  }
+
+  .button {
+    padding: 0.7rem 2.5rem;
+    color: inherit;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 100px;
+    background-image: linear-gradient(
+      -30deg,
+      var(--primary),
+      var(--primary-forground)
+    );
+    color: white;
+  }
+```
+  </Tabs.Tab>
+</Tabs
+
+>
+

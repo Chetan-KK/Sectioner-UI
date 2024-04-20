@@ -1,0 +1,17 @@
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
+export default function RedirectPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect to the desired page after 3 seconds
+      router.push('/docs/getting-started'); // Change '/destination-page' to your desired destination
+
+    // Clear the timer to prevent memory leaks
+  }, [router]);
+
+  return (
+    undefined
+  );
+}

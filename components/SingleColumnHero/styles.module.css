@@ -1,41 +1,41 @@
 .hero {
-  padding: 10rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-.heading {
-  background: -webkit-linear-gradient(
-    250deg,
-    var(--secondary),
-    var(--secondary-forground)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 800;
-  font-size: 5.3rem;
-}
-.subHeading {
-  width: 50vw;
-  text-align: center;
-}
-.button {
-  padding: 0.7rem 2.5rem;
-
-  color: inherit;
-  text-decoration: none;
-  margin-top: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 100px;
-  /* background-color: var(--primary); */
-  background-image: linear-gradient(
-    -30deg,
-    var(--primary),
-    var(--primary-forground)
-  );
-  color: white;
-}
+    padding: 10rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .heading {
+    background: -webkit-linear-gradient(
+      250deg,
+      var(--secondary),
+      var(--secondary-forground)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    font-size: 5.3rem;
+  }
+  .subHeading {
+    width: 50vw;
+    text-align: center;
+  }
+  .button {
+    padding: 0.7rem 2.5rem;
+  
+    color: inherit;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 100px;
+    background-image: linear-gradient(
+      -30deg,
+      var(--primary),
+      var(--primary-forground)
+    );
+    color: white;
+  }
+  
