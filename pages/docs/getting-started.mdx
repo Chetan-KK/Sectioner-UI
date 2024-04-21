@@ -1,23 +1,31 @@
 # Getting Started
 
+import { Cards, Card } from "nextra/components";
+import { NextjsIcon, ReactjsIcon } from "@/assets/icons/Icons";
 
-import { Cards, Card } from 'nextra/components'
-import { NextjsIcon,ReactjsIcon } from '@/assets/icons/Icons'
- 
 <Cards>
-  <Card icon={<ReactjsIcon/>} title="React JS" href="/docs/setup/react" style={{fill:"hsl(var(--text))"}} />
-  <Card icon={<NextjsIcon/>} title="Next JS" href="/docs/setup/next" style={{fill:"hsl(var(--text))"}}/>
+  <Card
+    icon={<ReactjsIcon />}
+    title="React JS"
+    href="/docs/setup/react"
+    style={{ fill: "hsl(var(--text))" }}
+  />
+  <Card
+    icon={<NextjsIcon />}
+    title="Next JS"
+    href="/docs/setup/next"
+    style={{ fill: "hsl(var(--text))" }}
+  />
 </Cards>
 
-
-- create a [react](/docs/setup/react) or [next](/docs/setup/next) project. 
-- copy css varibales in your `globals.css`. 
+- create a [react](/docs/setup/react) or [next](/docs/setup/next) project.
+- copy css varibales in your `globals.css`.
 
 ```css showLineNumbers filename="globals.css" copy
 :root {
-    --primary: rgb(0, 170, 255);
-    --primary-forground: rgb(0, 94, 255);
-    --secondary: rgb(255, 0, 174);
-    --secondary-forground: rgb(157, 0, 255);
+  --primary: rgb(0, 170, 255);
+  --primary-forground: rgb(0, 94, 255);
+  --secondary: rgb(255, 0, 174);
+  --secondary-forground: rgb(157, 0, 255);
 }
 ```
