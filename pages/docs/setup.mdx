@@ -1,0 +1,12 @@
+import { Tabs } from 'nextra/components'
+ 
+import { Cards, Card } from 'nextra/components'
+import { NextjsIcon,ReactjsIcon,JsIcon,VitejsIcon,TailwindIcon } from '@/assets/icons/Icons'
+ 
+<Cards>
+  <Card icon={<JsIcon/>} title="Vanilla JS" href="/docs/setup/vanilla" style={{fill:"hsl(var(--text))"}}/>
+  <Card icon={<VitejsIcon/>} title="Vite JS" href="/docs/setup/vite" style={{fill:"hsl(var(--text))"}}/>
+  <Card icon={<ReactjsIcon/>} title="React JS" href="/docs/setup/react" style={{fill:"hsl(var(--text))"}} />
+  <Card icon={<NextjsIcon/>} title="Next JS" href="/docs/setup/next" style={{fill:"hsl(var(--text))"}}/>
+  <Card icon={<TailwindIcon/>} title="Tailwind CSS" href="/docs/setup/tailwind" style={{fill:"hsl(var(--text))"}}/>
+</Cards>
