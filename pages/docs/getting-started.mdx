@@ -2,10 +2,11 @@
 
 
 import { Cards, Card } from 'nextra/components'
+import { NextjsIcon,ReactjsIcon } from '@/assets/icons/Icons'
  
 <Cards>
-  <Card title="react" href="/docs/installation/react" />
-  <Card title="next" href="/docs/installation/next" />
+  <Card icon={<ReactjsIcon/>} title="React JS" href="/docs/installation/react" style={{fill:"hsl(var(--text))"}} />
+  <Card icon={<NextjsIcon/>} title="Next JS" href="/docs/installation/next" style={{fill:"hsl(var(--text))"}}/>
 </Cards>
 
 

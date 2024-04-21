@@ -9,3 +9,12 @@
     --sub-text: 255 0% 30%;
     font-family: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.dark{
+    --primary: 200 100% 50%;
+    --primary-forground: 218 100% 50%;
+    --secondary: 319 100% 50%;
+    --secondary-forground: 277 100% 50%;
+    --text: 255 100% 100%;
+    --sub-text: 255 0% 30%;
+}

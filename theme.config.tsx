@@ -5,6 +5,8 @@ const config: DocsThemeConfig = {
   logo: (
     <h1 style={{ fontWeight: "bold", fontSize: "1.2rem" }}>Sectioner UI</h1>
   ),
+  primaryHue:200,
+  primarySaturation:100,
   project: {
     link: "https://github.com/chetan-kk/Sectioner-UI",
   },
