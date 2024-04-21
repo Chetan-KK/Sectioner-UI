@@ -42,7 +42,7 @@
     hsl(var(--primary)),
     hsl(var(--primary-forground))
   );
-  color: hsl(var(--text));
+  color: hsl(var(--text-forground));
   transform: translateY(0);
   transition: box-shadow 250ms, transform 250ms;
   font-family: var(--ff-poppins);

@@ -4,10 +4,11 @@ import SingleColumnHero from "@/ui/singleColumnHero/SingleColumnHero";
 
 ## Overview 
 
-Fully Responsive single column hero section
+- Static single column hero section
+- Fully Responsive single column hero section
 
 
-## preview
+### preview
 <SingleColumnHero
   heading="Sectioner UI"
   subHeading="Welcome to Sectioner UI, a modern UI library designed to make your web designing faster! this UI library contains jsx and module.css code sections!"
@@ -15,14 +16,14 @@ Fully Responsive single column hero section
   buttonText="Explore library"
 />
 
-## code
+### code
 
 import { Tabs } from "nextra/components";
 
-<Tabs items={['access','jsx', 'css']}>
+<Tabs items={['access component','jsx', 'css']}>
   <Tabs.Tab>
   
-```jsx showLineNumbers filename="components/singleColumnHero/SingleColumnHero.jsx" copy
+```jsx showLineNumbers filename="app.jsx" copy
 <SingleColumnHero
   heading="Sectioner UI"
   subHeading="Welcome to Sectioner UI, a modern UI library designed to make your web designing faster! this UI library contains jsx and module.css code sections!"
@@ -33,7 +34,7 @@ import { Tabs } from "nextra/components";
   </Tabs.Tab>
   <Tabs.Tab>
 
-```jsx showLineNumbers filename="components/singleColumnHero/SingleColumnHero.jsx" copy
+```jsx showLineNumbers filename="sectioner/singleColumnHero/SingleColumnHero.jsx" copy
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
@@ -60,7 +61,7 @@ export default SingleColumnHero;
 
   </Tabs.Tab>
   <Tabs.Tab>
-  ```css showLineNumbers filename="components/singleColumnHero/styles.module.css" copy
+  ```css showLineNumbers filename="sectioner/singleColumnHero/styles.module.css" copy
   .hero {
     padding: 10rem 2rem;
     display: flex;

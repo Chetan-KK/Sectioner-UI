@@ -1,12 +1,30 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import Link from "next/link";
 
 const config: DocsThemeConfig = {
   logo: (
     <h1 style={{ fontWeight: "bold", fontSize: "1.2rem" }}>Sectioner UI</h1>
   ),
-  primaryHue:200,
-  primarySaturation:100,
+  primaryHue: 200,
+  primarySaturation: 100,
+  banner: {
+    text: (
+      <p
+        style={{
+          fontWeight: "normal",
+          fontSize: ".8rem",
+        }}
+      >
+        🎉 new{" "}
+        <Link href={"/docs/components/singleColumnHero"} className="link">
+          Single Column Hero
+        </Link>{" "}
+        section added
+      </p>
+    ),
+    dismissible: true,
+  },
   project: {
     link: "https://github.com/chetan-kk/Sectioner-UI",
   },
@@ -28,7 +46,7 @@ const config: DocsThemeConfig = {
       <meta property="og:title" content="Nextra" />
       <meta property="og:description" content="The next site builder" />
     </>
-  )
+  ),
 };
 
 export default config;

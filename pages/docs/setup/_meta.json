@@ -4,5 +4,8 @@
     },
     "next":{
         "title":"Next JS"
+    },
+    "vite-react":{
+        "title":"Vite React"
     }
 }

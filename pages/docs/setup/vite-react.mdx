@@ -1,0 +1,65 @@
+# React with Vite Setup
+### steps
+
+import { Tabs } from "nextra/components";
+
+1. Open your terminal.
+2. Run the following command to create a new React app:
+
+<Tabs items={["npm", "yarn", "pnpm", "bun"]}>
+  <Tabs.Tab>
+  ```bash copy
+  npm create vite@latest
+  ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+  ```bash copy
+  yarn create vite
+  ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+  ```bash copy
+  pnpm create vite
+  ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+  ```bash copy
+  bun create vite
+  ```
+  </Tabs.Tab>
+</Tabs>
+
+3. Enter your Project name in prompt
+4. Select `React` and then `javascript`
+5. cd in `your-project-name`
+6. install packages
+7. copy these css into `index.css`
+
+```css copy
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --primary: 200 100% 50%;
+  --primary-forground: 218 100% 50%;
+  --secondary: 319 100% 50%;
+  --secondary-forground: 277 100% 50%;
+  --text: 255 100% 0%;
+  --text-forground: 255 100% 100%;
+  --sub-text: 255 0% 30%;
+  font-family: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dark {
+  --primary: 200 100% 50%;
+  --primary-forground: 218 100% 50%;
+  --secondary: 319 100% 50%;
+  --secondary-forground: 277 100% 50%;
+  --text: 255 100% 100%;
+  --text-forground: 255 100% 0%;
+  --sub-text: 255 0% 30%;
+}
+```
+
+8. create `src/components/sectioner` folder. 
+
+**note**: create separate folder for all sections/components in `sectioner` folder.
