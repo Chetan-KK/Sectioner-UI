@@ -2,9 +2,12 @@
 ### steps
 
 import { Tabs } from "nextra/components";
+import { Steps } from 'nextra/components'
+ 
+<Steps>
+### Open your terminal.
 
-1. Open your terminal.
-2. Run the following command to create a new React app:
+Run the following command to create a new React app:
 
 <Tabs items={["npm", "yarn", "pnpm", "bun"]}>
   <Tabs.Tab>
@@ -31,13 +34,16 @@ import { Tabs } from "nextra/components";
 
 This will initiate the creation of a new Vite-powered React project.
 
-3. Follow the prompts to enter your project name and select the desired template. 
-4. Choose `React` and `javascript` when prompted.
-5. Navigate to Project Directory:
+- Follow the prompts to enter your project name and select the desired template. 
+- Choose `React` and `javascript` when prompted.
+
+ 
+### Navigate to Project Directory:
+
 ```bash copy
   cd your-project-name
 ```
-6. Install Dependencies.
+ Install Dependencies.
 
 <Tabs items={["npm", "yarn", "pnpm", "bun"]}>
   <Tabs.Tab>
@@ -62,7 +68,9 @@ This will initiate the creation of a new Vite-powered React project.
   </Tabs.Tab>
 </Tabs>
 
-7. Copy the following CSS code into your `index.css` file to apply **global variables** to your project
+### CSS variables
+
+ Copy the following CSS code into your `index.css` file to apply **global variables** to your project
 
 ```css copy
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -90,7 +98,9 @@ This will initiate the creation of a new Vite-powered React project.
 ```
 This code defines the global color variables and imports the 'Poppins' font for consistent styling across your application.
 
-8. Create a folder named `sectioner` within the `src/components` directory. Organize your components into separate folders within `sectioner` for better project structure and maintainability.
+### Folder Structure
+
+Create a folder named `sectioner` within the `src/components` directory. Organize your components into separate folders within `sectioner` for better project structure and maintainability.
 
 **note**: It's recommended to create a separate folder for each section or component within the `sectioner` directory.
 
@@ -115,4 +125,4 @@ import { FileTree } from 'nextra/components'
   </FileTree.Folder>
 </FileTree>
 
-
+</Steps>

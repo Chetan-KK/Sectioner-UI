@@ -31,10 +31,6 @@
   text-decoration: underline;
 }
 
-a{
-  /* color: red; */
-}
-
 pre::-webkit-scrollbar {
   display: none;
 }
