@@ -29,11 +29,40 @@ import { Tabs } from "nextra/components";
   </Tabs.Tab>
 </Tabs>
 
-3. Enter your Project name in prompt
-4. Select `React` and then `javascript`
-5. cd in `your-project-name`
-6. install packages
-7. copy these css into `index.css`
+This will initiate the creation of a new Vite-powered React project.
+
+3. Follow the prompts to enter your project name and select the desired template. 
+4. Choose `React` and `javascript` when prompted.
+5. Navigate to Project Directory:
+```bash copy
+  cd your-project-name
+```
+6. Install Dependencies.
+
+<Tabs items={["npm", "yarn", "pnpm", "bun"]}>
+  <Tabs.Tab>
+  ```bash copy
+  npm install
+  ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+  ```bash copy
+  yarn install
+  ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+  ```bash copy
+  pnpm install
+  ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+  ```bash copy
+  bun install
+  ```
+  </Tabs.Tab>
+</Tabs>
+
+7. Copy the following CSS code into your `index.css` file to apply **global variables** to your project
 
 ```css copy
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -59,7 +88,31 @@ import { Tabs } from "nextra/components";
   --sub-text: 255 0% 30%;
 }
 ```
+This code defines the global color variables and imports the 'Poppins' font for consistent styling across your application.
 
-8. create `src/components/sectioner` folder. 
+8. Create a folder named `sectioner` within the `src/components` directory. Organize your components into separate folders within `sectioner` for better project structure and maintainability.
 
-**note**: create separate folder for all sections/components in `sectioner` folder.
+**note**: It's recommended to create a separate folder for each section or component within the `sectioner` directory.
+
+
+import { FileTree } from 'nextra/components'
+ 
+<FileTree>
+  <FileTree.Folder name="your-project" defaultOpen>
+  <FileTree.Folder name="src" defaultOpen>
+    <FileTree.Folder name="components" defaultOpen>
+    <FileTree.Folder name="sectioner" defaultOpen>
+      <FileTree.Folder name="sectioner-component-name" defaultOpen>
+        
+    <FileTree.File name="sectioner-component-name.jsx" />
+    <FileTree.File name="sectioner-component-name.css" />
+    </FileTree.Folder>  
+    </FileTree.Folder>
+    </FileTree.Folder>
+    
+    
+  </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+
