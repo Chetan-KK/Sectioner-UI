@@ -8,6 +8,15 @@ const config: DocsThemeConfig = {
   ),
   primaryHue: 200,
   primarySaturation: 100,
+  toc: {
+    backToTop:true,
+    title:"this page",
+  },
+  // faviconGlyph:"Se",
+  search:{
+    placeholder:"search..."
+
+  },
   banner: {
     text: (
       <p

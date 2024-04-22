@@ -30,3 +30,16 @@
 .link:hover {
   text-decoration: underline;
 }
+
+a{
+  /* color: red; */
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
