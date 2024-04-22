@@ -1,21 +1,16 @@
 # Getting Started
 
 import { Cards, Card } from "nextra/components";
-import { NextjsIcon, ReactjsIcon } from "@/assets/icons/Icons";
-
+import { NextjsIcon,ReactjsIcon,JsIcon,VitejsIcon,TailwindIcon } from '@/assets/icons/Icons'
+ 
+## Frameworks
+ 
 <Cards>
-  <Card
-    icon={<ReactjsIcon />}
-    title="React JS"
-    href="/docs/setup/react"
-    style={{ fill: "hsl(var(--text))" }}
-  />
-  <Card
-    icon={<NextjsIcon />}
-    title="Next JS"
-    href="/docs/setup/next"
-    style={{ fill: "hsl(var(--text))" }}
-  />
+  <Card icon={<JsIcon/>} title="Vanilla JS" href="/docs/setup/vanilla" style={{fill:"hsl(var(--text))"}}/>
+  <Card icon={<><VitejsIcon/>+<ReactjsIcon/></>} title="Vite + React" href="/docs/setup/vite-react" style={{fill:"hsl(var(--text))"}}/>
+  <Card icon={<ReactjsIcon/>} title="React JS" href="/docs/setup/react" style={{fill:"hsl(var(--text))"}} />
+  <Card icon={<NextjsIcon/>} title="Next JS" href="/docs/setup/next" style={{fill:"hsl(var(--text))"}}/>
+  <Card icon={<TailwindIcon/>} title="Tailwind CSS" href="/docs/setup/tailwind" style={{fill:"hsl(var(--text))"}}/>
 </Cards>
 
 - create a [react](/docs/setup/react) or [next](/docs/setup/next) project.

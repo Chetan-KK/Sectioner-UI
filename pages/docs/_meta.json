@@ -6,6 +6,20 @@
     "title": "Getting Started"
   },
   "setup": {
-    "title": "Setup"
+    "title": "Setups"
+  },
+  "-": {
+    "title":"Utils",
+    "type": "separator"
+  },
+  "theming": {
+    "title": "Theming"
+  },
+  "--": {
+    "title":"Sectioners",
+    "type": "separator"
+  },
+  "components": {
+    "title": "Components"
   }
 }

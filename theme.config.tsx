@@ -17,6 +17,17 @@ const config: DocsThemeConfig = {
     placeholder:"search..."
 
   },
+  sidebar:{
+    defaultMenuCollapseLevel:2,
+    titleComponent:function({title,type}){
+      if (type === 'separator') {
+        return (
+          <div className="separator">⭐ {title}</div>
+        )
+      }
+      return <>{title}</>
+    }
+  },
   banner: {
     text: (
       <p
