@@ -1,11 +1,12 @@
 {
-    "react":{
-        "title":"React JS"
-    },
-    "next":{
-        "title":"Next JS"
-    },
-    "vite-react":{
-        "title":"Vite + React"
-    }
+  "next": {
+    "title": "Next JS"
+  },
+  "vite-react": {
+    "title": "Vite + React"
+  },
+  "tailwind": {
+    "title": "tailwind",
+    "display": "hidden"
+  }
 }

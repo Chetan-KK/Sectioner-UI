@@ -1,34 +1,104 @@
-# React JS Setup
-
-## steps
+# React Setup
 
 import { Tabs } from "nextra/components";
+import { Steps } from 'nextra/components';
+ 
+<Steps>
+### Create a React App
 
-- Open your terminal.
-- Run the following command to create a new React app:
+Open your terminal and run the following command to create a new React app:
 
-<Tabs items={["npm", "yarn", "pnpm", "bun"]}>
-  <Tabs.Tab>
-  ```bash copy
-  npx create-react-app my-app-name
-  ```
-  </Tabs.Tab>
-  <Tabs.Tab>
-  ```bash copy
-  npx create-react-app my-app-name
-  ```
-  </Tabs.Tab>
-  <Tabs.Tab>
-  ```bash copy
-  npx create-react-app my-app-name
-  ```
-  </Tabs.Tab>
-  <Tabs.Tab>
-  ```bash copy
-  npx create-react-app my-app-name
-  ```
-  </Tabs.Tab>
-</Tabs>
+```bash copy
+npx create-react-app my-app
+```
 
--
--
+### Add CSS Variables
+
+Copy these CSS variables into your `src/index.css`. If you have existing variables, just add the remaining ones. Feel free to modify any color as needed.
+
+- these are the default colors.
+
+This code defines the global color variables and imports the 'Poppins' font for consistent styling across your application.
+
+```css showLineNumbers filename="index.css" copy
+/* Importing Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Resetting default margin and padding */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS variables used in components */
+:root {
+  --background: 255 100% 100%;
+  --primary: 200 100% 50%;
+  --primary-foreground: 218 100% 50%;
+  --secondary: 319 100% 50%;
+  --secondary-foreground: 277 100% 50%;
+  --text: 255 100% 0%;
+  --text-foreground: 255 100% 100%;
+  --sub-text: 255 0% 30%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* CSS variables for dark mode */
+.dark {
+  --background: 255 100% 0%;
+  --primary: 200 100% 50%;
+  --primary-foreground: 218 100% 50%;
+  --secondary: 319 100% 50%;
+  --secondary-foreground: 277 100% 50%;
+  --text: 255 100% 100%;
+  --text-foreground: 255 100% 0%;
+  --sub-text: 255 0% 50%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--text));
+}
+```
+
+### Create the Sectioner Components Folder
+
+Create the sectioner folder under `src/components` in your project.
+
+Alternatively:
+
+Open your project directory and run the following command to create `sectioner` folder:
+
+```bash copy
+mkdir -p src/components/sectioner
+```
+
+- All your Sectioner components will reside here.
+- You can change the folder structure if you prefer.
+
+import { FileTree } from "nextra/components";
+
+##### Folder structure
+
+<FileTree>
+  <FileTree.Folder name="my-app" defaultOpen>
+    <FileTree.Folder name="node_modules" />
+    <FileTree.Folder name="public" />
+    <FileTree.Folder name="src" defaultOpen>
+      <FileTree.Folder name="components" defaultOpen>
+        <FileTree.Folder name="sectioner" defaultOpen />
+      </FileTree.Folder>
+    </FileTree.Folder>
+    <FileTree.File name="package-lock.json" />
+    <FileTree.File name="package.json" />
+  </FileTree.Folder>
+</FileTree>
+
+### Next Steps
+
+Now, you can start adding your Sectioner UI components into the sectioner folder. Follow the individual component documentation for further integration instructions.
+
+</Steps>

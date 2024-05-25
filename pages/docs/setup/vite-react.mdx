@@ -1,13 +1,13 @@
-# React with Vite Setup
+# React + Vite Setup
 ### steps
 
 import { Tabs } from "nextra/components";
-import { Steps } from 'nextra/components'
+import { Steps } from 'nextra/components';
  
 <Steps>
-### Open your terminal.
+### Create a Vite React App:
 
-Run the following command to create a new React app:
+Open your terminal and run the following command to create a new **Vite React app**:
 
 <Tabs items={["npm", "yarn", "pnpm", "bun"]}>
   <Tabs.Tab>
@@ -31,48 +31,20 @@ Run the following command to create a new React app:
   ```
   </Tabs.Tab>
 </Tabs>
-
-This will initiate the creation of a new Vite-powered React project.
-
-- Follow the prompts to enter your project name and select the desired template. 
-- Choose `React` and `javascript` when prompted.
-
  
-### Navigate to Project Directory:
+### Navigate to Your Project Directory
+
+After creating your project, navigate to your project directory:
 
 ```bash copy
   cd your-project-name
 ```
- Install Dependencies.
 
-<Tabs items={["npm", "yarn", "pnpm", "bun"]}>
-  <Tabs.Tab>
-  ```bash copy
-  npm install
-  ```
-  </Tabs.Tab>
-  <Tabs.Tab>
-  ```bash copy
-  yarn install
-  ```
-  </Tabs.Tab>
-  <Tabs.Tab>
-  ```bash copy
-  pnpm install
-  ```
-  </Tabs.Tab>
-  <Tabs.Tab>
-  ```bash copy
-  bun install
-  ```
-  </Tabs.Tab>
-</Tabs>
+### Add CSS Variables
 
-### CSS variables
+Copy and replace the following CSS code into your `index.css` file to apply global variables to your project:
 
- Copy and replace the following CSS code into your `index.css` file to apply **global variables** to your project
-
-```css copy
+```css showLineNumbers filename="index.css" copy
 /* importing poppins font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
@@ -108,39 +80,56 @@ This will initiate the creation of a new Vite-powered React project.
   --sub-text: 255 0% 30%;
 }
 ```
-This code defines the global color variables and imports the 'Poppins' font for consistent styling across your application.
+This code defines global color variables and imports the **'Poppins'** font for consistent styling across your application.
+
+### Create the Sectioner Components Folder
+
+Create the `sectioner` folder under `src/components` in your project.
+
+**Alternatively:**
+
+Open your project directory and run the following command to create the `sectioner` folder:
+
+```bash copy
+  mkdir -p src/components/sectioner
+```
+
+- All your Sectioner components will reside here.
+- You can change the folder structure if you prefer.
+
+import { FileTree } from "nextra/components";
 
 ### Folder Structure
 
-Create a folder named `sectioner` within the `src/components` directory. Organize your components into separate folders within `sectioner` for better project structure and maintainability.
+<FileTree>
+  <FileTree.Folder name="your-project" defaultOpen>
+    <FileTree.Folder name="node_modules" />
+    <FileTree.Folder name="public" />
+    <FileTree.Folder name="src" defaultOpen>
+      <FileTree.Folder name="assets" />
+      <FileTree.Folder name="components" defaultOpen>
+        <FileTree.Folder name="sectioner" defaultOpen>
+          <FileTree.Folder name="component-name" defaultOpen>
+            <FileTree.File name="sectioner-component.jsx" />
+            <FileTree.File name="sectioner-component.module.css" />
+          </FileTree.Folder>
+        </FileTree.Folder>
+      </FileTree.Folder>
+      <FileTree.File name="App.css" />
+      <FileTree.File name="App.jsx" />
+      <FileTree.File name="index.css" />
+      <FileTree.File name="main.jsx" />
+    </FileTree.Folder>
+    <FileTree.File name="index.html" />
+    <FileTree.File name="package.json" />
+    <FileTree.File name="vite.config.js" />
+  </FileTree.Folder>
+</FileTree>
 
-import { Callout } from 'nextra/components'
+import { Callout } from 'nextra/components';
  
 <Callout type="warning" emoji="💡">
 **note**: It's recommended to create a separate folder for each section or component within the `sectioner` directory.
 </Callout>
-
-
-
-
-import { FileTree } from 'nextra/components'
- 
-<FileTree>
-  <FileTree.Folder name="your-project" defaultOpen>
-  <FileTree.Folder name="src" defaultOpen>
-    <FileTree.Folder name="components" defaultOpen>
-    <FileTree.Folder name="sectioner" defaultOpen>
-      <FileTree.Folder name="component-name" defaultOpen>
-        
-    <FileTree.File name="sectioner-component.jsx" />
-    <FileTree.File name="sectioner-component.css" />
-    </FileTree.Folder>  
-    </FileTree.Folder>
-    </FileTree.Folder>
-    
-    
-  </FileTree.Folder>
-  </FileTree.Folder>
-</FileTree>
 
 </Steps>

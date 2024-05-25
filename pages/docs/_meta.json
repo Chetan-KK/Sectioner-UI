@@ -9,14 +9,14 @@
     "title": "Setups"
   },
   "-": {
-    "title":"Utils",
+    "title": "Utils",
     "type": "separator"
   },
   "theming": {
     "title": "Theming"
   },
   "--": {
-    "title":"Sectioners",
+    "title": "Sectioners",
     "type": "separator"
   },
   "components": {

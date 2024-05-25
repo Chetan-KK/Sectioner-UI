@@ -1,26 +1,68 @@
 # Getting Started
 
 import { Cards, Card } from "nextra/components";
-import { NextjsIcon,ReactjsIcon,JsIcon,VitejsIcon,TailwindIcon } from '@/assets/icons/Icons'
- 
+import { NextjsIcon, ReactjsIcon, VitejsIcon } from '@/assets/icons/Icons';
+
 ## Frameworks
- 
+
 <Cards>
-  <Card icon={<JsIcon/>} title="Vanilla JS" href="/docs/setup/vanilla" style={{fill:"hsl(var(--text))"}}/>
-  <Card icon={<><VitejsIcon/>+<ReactjsIcon/></>} title="Vite + React" href="/docs/setup/vite-react" style={{fill:"hsl(var(--text))"}}/>
-  <Card icon={<ReactjsIcon/>} title="React JS" href="/docs/setup/react" style={{fill:"hsl(var(--text))"}} />
-  <Card icon={<NextjsIcon/>} title="Next JS" href="/docs/setup/next" style={{fill:"hsl(var(--text))"}}/>
-  <Card icon={<TailwindIcon/>} title="Tailwind CSS" href="/docs/setup/tailwind" style={{fill:"hsl(var(--text))"}}/>
+  {/* <Card icon={<JsIcon/>} title="Vanilla JS" href="/docs/setup/vanilla" style={{fill:"hsl(var(--text))"}}/> */}
+  <Card icon={<ReactjsIcon />} title="React JS" href="/docs/setup/react" style={{fill:"hsl(var(--text))"}} />
+  <Card icon={<><VitejsIcon />+<ReactjsIcon /></>} title="Vite + React" href="/docs/setup/vite-react" style={{fill:"hsl(var(--text))"}} />
+  <Card icon={<NextjsIcon />} title="Next JS" href="/docs/setup/next" style={{fill:"hsl(var(--text))"}} />
+  {/* <Cards icon={<TailwindIcon/>} title="Tailwind CSS" href="/docs/setup/tailwind" style={{fill:"hsl(var(--text))"}}/> */}
 </Cards>
 
-- create a [react](/docs/setup/react) or [next](/docs/setup/next) project.
-- copy css varibales in your `globals.css`.
+To get started with Sectioner UI, follow these steps:
+
+1. Create a [React](docs/setup/react) or [Next.js](docs/setup/next) project.
+2. Copy the CSS variables into your `globals.css` file.
 
 ```css showLineNumbers filename="globals.css" copy
+/* Importing Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Resetting default margin and padding */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS variables used in components */
 :root {
-  --primary: rgb(0, 170, 255);
-  --primary-forground: rgb(0, 94, 255);
-  --secondary: rgb(255, 0, 174);
-  --secondary-forground: rgb(157, 0, 255);
+  --background: 255 100% 100%;
+  --primary: 200 100% 50%;
+  --primary-foreground: 218 100% 50%;
+  --secondary: 319 100% 50%;
+  --secondary-foreground: 277 100% 50%;
+  --text: 255 100% 0%;
+  --text-foreground: 255 100% 100%;
+  --sub-text: 255 0% 30%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* CSS variables for dark mode */
+.dark {
+  --background: 255 100% 0%;
+  --primary: 200 100% 50%;
+  --primary-foreground: 218 100% 50%;
+  --secondary: 319 100% 50%;
+  --secondary-foreground: 277 100% 50%;
+  --text: 255 100% 100%;
+  --text-foreground: 255 100% 0%;
+  --sub-text: 255 0% 50%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--text));
 }
 ```
+
+### Next Steps
+
+- Refer to the specific setup guides for [React](docs/setup/react) or [Next.js](docs/setup/next) for detailed instructions on integrating Sectioner UI into your project.
+- Explore the component documentation to start using and customizing the UI components in your application.
