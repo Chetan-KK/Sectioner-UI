@@ -15,7 +15,7 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: calc(1.3rem + 4vw);
+  font-size: 5rem;
   text-align: center;
   font-weight: 700;
   font-family: var(--ff-poppins);

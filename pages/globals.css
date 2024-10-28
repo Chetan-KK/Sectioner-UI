@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *,
 *::before,
 *::after {
@@ -9,7 +13,7 @@
 }
 
 :root {
-  --background:255 100% 100%;
+  --background: 255 100% 100%;
   --primary: 200 100% 50%;
   --primary-forground: 218 100% 50%;
   --secondary: 319 100% 50%;
@@ -21,7 +25,7 @@
 }
 
 .dark {
-  --background:255 100% 0%;
+  --background: 255 0% 5%;
   --primary: 200 100% 50%;
   --primary-forground: 218 100% 50%;
   --secondary: 319 100% 50%;
@@ -32,23 +36,25 @@
 }
 
 :root {
-    --doc-border:235 235 235;
-    --doc-pre:250 250 250;
+  --doc-border: 235 235 235;
+  --doc-pre: 250 250 250;
+  --doc-pre-2: 253 253 253;
 }
 
 .dark {
-    --doc-border:38 38 38;
-    --doc-pre:21 21 21;
+  --doc-border: 38 38 38;
+  --doc-pre: 21 21 21;
+  --doc-pre-2: 24 24 24;
 }
 
 /* scrollbar */
-::-webkit-scrollbar{
-  --size:2px;
+::-webkit-scrollbar {
+  --size: 2px;
   width: var(--size);
   height: var(--size);
   background-color: transparent;
 }
-::-webkit-scrollbar-thumb{  
+::-webkit-scrollbar-thumb {
   background-color: hsl(var(--text));
   border-radius: 10px;
 }
@@ -67,12 +73,11 @@ pre::-webkit-scrollbar {
   display: none;
 }
 
-.nextra-code-block div:nth-child(1){
+.nextra-code-block div:nth-child(1) {
   background-color: rgb(var(--doc-pre)) !important;
   border: 1px solid rgb(var(--doc-border));
-
 }
-.nextra-button{
+.nextra-button {
   background-color: rgb(var(--doc-pre)) !important;
 }
 
@@ -85,19 +90,45 @@ pre {
   /* box-shadow: 0 0 0 1px ; */
 }
 
-.nextra-filetree > div{
+.nextra-filetree > div {
   width: 100%;
 }
 
-
 .nextra-menu-desktop li a,
-.nextra-menu-desktop li button{
-  padding:  4px 8px !important;
-  font-size: .8rem !important;
+.nextra-menu-desktop li button {
+  padding: 4px 8px !important;
+  font-size: 0.8rem !important;
 }
-.nextra-menu-desktop li button{
+.nextra-menu-desktop li button {
 }
-.nextra-menu-desktop li:has(.separator){
+.nextra-menu-desktop li:has(.separator) {
   border-top: 1px solid rgb(var(--doc-border));
   margin: 5px 0 0 0 !important;
+}
+
+.nextra-content table {
+  /* border-radius: 10px; */
+}
+
+.nextra-content table tr,
+.nextra-content table tbody,
+.nextra-content table thead {
+  width: 100vw;
+}
+
+.nextra-content table th {
+  background-color: rgb(var(--doc-pre-2)) !important;
+}
+.nextra-content table th,
+.nextra-content table td {
+  /* width: 100%; */
+  border: 1px solid rgb(var(--doc-border)) !important;
+}
+
+.nextra-content table tr {
+  background-color: rgb(var(--doc-pre)) !important;
+}
+
+.nextra-content table tr:nth-child(even) {
+  background-color: rgb(var(--doc-pre-2)) !important;
 }

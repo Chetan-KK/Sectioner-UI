@@ -9,47 +9,45 @@ const config: DocsThemeConfig = {
   primaryHue: 200,
   primarySaturation: 100,
   toc: {
-    backToTop:true,
-    title:"this page",
+    backToTop: true,
+    title: "this page",
   },
   // faviconGlyph:"Se",
-  search:{
-    placeholder:"search..."
-
+  search: {
+    placeholder: "search...",
   },
-  sidebar:{
-    defaultMenuCollapseLevel:2,
-    titleComponent:function({title,type}){
-      if (type === 'separator') {
-        return (
-          <div className="separator">⭐ {title}</div>
-        )
+  sidebar: {
+    defaultMenuCollapseLevel: 2,
+    titleComponent: function ({ title, type }) {
+      if (type === "separator") {
+        return <div className="separator">- {title}</div>;
       }
-      return <>{title}</>
-    }
+      return <>{title}</>;
+    },
+    toggleButton: true,
   },
-  banner: {
-    text: (
-      <p
-        style={{
-          fontWeight: "normal",
-          fontSize: ".8rem",
-        }}
-      >
-        🎉 new{" "}
-        <Link href={"/docs/components/singleColumnHero"} className="link">
-          Single Column Hero
-        </Link>{" "}
-        section added
-      </p>
-    ),
-    dismissible: true,
-  },
+  // banner: {
+  //   text: (
+  //     <p
+  //       style={{
+  //         fontWeight: "normal",
+  //         fontSize: ".8rem",
+  //       }}
+  //     >
+  //       🎉 new{" "}
+  //       <Link href={"/docs/components/singleColumnHero"} className="link">
+  //         Single Column Hero
+  //       </Link>{" "}
+  //       section added
+  //     </p>
+  //   ),
+  //   dismissible: true,
+  // },
   project: {
     link: "https://github.com/chetan-kk/Sectioner-UI",
   },
   chat: {
-    link: "https://discord.com",
+    link: "https://whatsapp.com",
   },
   docsRepositoryBase: "https://github.com/chetan-kk/Sectioner-UI",
   footer: {
@@ -59,6 +57,11 @@ const config: DocsThemeConfig = {
     return {
       titleTemplate: "%s - Sectioner UI",
     };
+  },
+  navbar: {
+    extraContent: function () {
+      return <>navbar extraContent</>;
+    },
   },
   head: (
     <>

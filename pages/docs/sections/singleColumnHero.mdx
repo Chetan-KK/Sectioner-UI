@@ -1,32 +1,25 @@
 # Single Column hero
 
 import SingleColumnHero from "@/ui/singleColumnHero/SingleColumnHero";
+import ComponentWrapper from "@/components/docs/component-wrapper";
 
 ## Overview 
 
 - Static single column hero section
 - Fully Responsive single column hero section
 
+<Tabs items={['Preview','Use']}>
+  <Tabs.Tab>
+  <ComponentWrapper>
+    <SingleColumnHero
+      heading="Sectioner UI"
+      subHeading="Welcome to Sectioner UI, a modern UI library designed to make your web designing faster! this UI library contains jsx and module.css code sections!"
+      buttonUrl="/explore"
+      buttonText="Explore library"
+    />
+  </ComponentWrapper>
+  </Tabs.Tab>
 
-### preview
-<SingleColumnHero
-  heading="Sectioner UI"
-  subHeading="Welcome to Sectioner UI, a modern UI library designed to make your web designing faster! this UI library contains jsx and module.css code sections!"
-  buttonUrl="/explore"
-  buttonText="Explore library"
-/>
-
-### installation
-
-import { Callout } from 'nextra/components'
- 
-<Callout type="warning" emoji="⚠">
-**note**: Requires [react-router-dom ↗](https://reactrouter.com/en/main/start/tutorial) for redirecting to other page.
-</Callout>
-
-import { Tabs } from "nextra/components";
-
-<Tabs items={['access component','jsx', 'css']}>
   <Tabs.Tab>
   
 ```jsx showLineNumbers filename="app.jsx" copy
@@ -38,6 +31,23 @@ import { Tabs } from "nextra/components";
 />
 ```
   </Tabs.Tab>
+  
+  </Tabs>
+### preview
+
+
+### installation
+
+import { Callout } from 'nextra/components';
+ 
+<Callout type="warning" emoji="⚠">
+**note**: Requires [react-router-dom ↗](https://reactrouter.com/en/main/start/tutorial) for redirecting to other page.
+</Callout>
+
+import { Tabs } from "nextra/components";
+
+<Tabs items={['jsx', 'css']}>
+  
   <Tabs.Tab>
 
 ```jsx showLineNumbers filename="sectioner/singleColumnHero/SingleColumnHero.jsx" copy
@@ -154,6 +164,38 @@ export default SingleColumnHero;
 </Tabs
 
 >
+
+#### Props
+
+Use the following props to customize the component.
+
+{<table className="nx-mt-6 nx-p-0 first:nx-mt-0">
+  <thead>
+    <tr>
+      <th align="center">Prop</th>
+      <th align="center">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td>heading</td>
+      <td>Main large heading of section</td>
+    </tr>
+    <tr>
+      <td>subHeading</td>
+      <td>subheading of section</td>
+    </tr>
+    <tr>
+      <td>buttonUrl</td>
+      <td>router where button will route</td>
+    </tr>
+    <tr>
+      <td>buttonText</td>
+      <td>text inside button</td>
+    </tr>
+  </tbody>
+</table>
+}
 
 #### Folder Structure
 
