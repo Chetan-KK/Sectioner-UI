@@ -12,6 +12,33 @@ Open your terminal and run the following command to create a new React app:
 npx create-react-app my-app
 ```
 
+### Navigate to Your Project Directory
+
+After creating your project, navigate to your project directory:
+
+```bash copy
+cd my-app
+```
+
+### Required Dependencies for some sections
+
+- [react-router-dom ↗](https://reactrouter.com/en/main/start/tutorial)
+- [react-scroll ↗](https://reactrouter.com/en/main/start/tutorial)
+
+### Configure Alias
+
+- Create `jsconfig.json` in your root directory.
+- Add this to your `jsconfig.json` for importing from `src/components/` folder with `components/` alias.
+
+```css showLineNumbers filename="vite.config.js" copy {7-11}
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src"]
+}
+```
+
 ### Add CSS Variables
 
 Copy these CSS variables into your `src/index.css`. If you have existing variables, just add the remaining ones. Feel free to modify any color as needed.
@@ -70,7 +97,7 @@ Create the sectioner folder under `src/components` in your project.
 
 Alternatively:
 
-Open your project directory and run the following command to create `sectioner` folder:
+Open your project root directory and run the following command to create `sectioner` folder:
 
 ```bash copy
 mkdir -p src/components/sectioner

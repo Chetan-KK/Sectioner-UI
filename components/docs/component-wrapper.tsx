@@ -1,6 +1,6 @@
 import { Expand, Flag } from "lucide-react";
+import { useTheme } from "nextra-theme-docs";
 import { Button } from "nextra/components";
-import { ExpandIcon, MenuIcon } from "nextra/icons";
 import React, { ReactNode, useEffect, useState } from "react";
 
 type Props = {
@@ -10,14 +10,17 @@ type Props = {
 const ComponentWrapper = ({ children }: Props) => {
   const [expanded, setExpanded] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [wrapperClassName, setWrapperClassName] = useState("");
 
   const handleClose = () => {
     setClosing(true);
     setTimeout(() => {
       setExpanded(false);
       setClosing(false);
-    }, 150); // Match the duration of your fade-out animation
+    }, 130); // Match the duration of your fade-out animation
   };
+
+  const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     if (expanded) {
@@ -27,6 +30,19 @@ const ComponentWrapper = ({ children }: Props) => {
     }
     return () => document.body.classList.remove("no-scroll");
   }, [expanded]);
+
+  useEffect(() => {
+    if (resolvedTheme === "dark") {
+      setWrapperClassName("preview-component-wrapper dark");
+    } else {
+      setWrapperClassName("preview-component-wrapper");
+    }
+  }, [resolvedTheme]);
+
+  // const wrapperClassName =
+  //   resolvedTheme === "dark"
+  //     ? " max-h-[45rem]"
+  //     : "preview-component-wrapper";
 
   return (
     <>
@@ -42,7 +58,7 @@ const ComponentWrapper = ({ children }: Props) => {
         >
           <Expand className="h-5 w-5" />
         </Button>
-        <div>{children}</div>
+        <div className={`${wrapperClassName}`}>{children}</div>
       </div>
       {expanded && (
         <div
@@ -50,14 +66,14 @@ const ComponentWrapper = ({ children }: Props) => {
             closing ? "animate-fadeOut" : "animate-fadeIn"
           }`}
         >
-          <div className="relative bg-background border border-border h-full rounded-2xl">
+          <div className="relative border border-border h-full rounded-2xl overflow-hidden">
             <Button
               className="absolute right-4 top-4 p-2"
               onClick={handleClose}
             >
               <Expand className="h-5 w-5" />
             </Button>
-            {children}
+            <div className={`${wrapperClassName} h-full`}>{children}</div>
           </div>
         </div>
       )}

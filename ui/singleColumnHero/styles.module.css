@@ -15,7 +15,7 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 5rem;
+  font-size: 6rem;
   text-align: center;
   font-weight: 700;
   font-family: var(--ff-poppins);
@@ -30,19 +30,18 @@
 
 .button {
   padding: 0.6rem 2.5rem;
-  color: inherit;
+  color: hsl(var(--text-forground));
   white-space: nowrap;
   text-decoration: none;
   margin-top: 0.8rem;
   font-weight: 600;
   cursor: pointer;
-  border-radius: 100px;
+  border-radius: var(--radius);
   background-image: linear-gradient(
     -30deg,
     hsl(var(--primary)),
     hsl(var(--primary-forground))
   );
-  color: hsl(var(--text-forground));
   transform: translateY(0);
   transition: box-shadow 250ms, transform 250ms;
   font-family: var(--ff-poppins);
@@ -52,12 +51,17 @@
   box-shadow: 0 2px 20px -5px hsl(var(--primary));
 }
 
+.button:focus {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 3px;
+}
+
 @media screen and (max-width: 750px) {
   .heading {
-    font-size: 3rem;
+    font-size: 4rem;
   }
   .subHeading {
-    width: 70vw;
+    width: 80vw;
     font-size: 0.9rem;
   }
   .button {
@@ -66,15 +70,13 @@
 }
 
 @media screen and (max-width: 450px) {
-  .heading {
-    font-size: 3rem;
-    line-height: 3rem;
-  }
   .hero {
     align-items: flex-start;
     padding: 10rem 1rem;
   }
   .heading {
+    font-size: 3rem;
+    line-height: 3.5rem;
     text-align: left;
   }
   .subHeading {

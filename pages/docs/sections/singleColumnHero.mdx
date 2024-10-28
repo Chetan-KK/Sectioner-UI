@@ -1,6 +1,11 @@
 # Single Column hero
 
-import SingleColumnHero from "@/ui/singleColumnHero/SingleColumnHero";
+import {
+  Button,
+  Heading,
+  SingleColumnHero,
+  SubHeading,
+} from "@/ui/singleColumnHero/SingleColumnHero";
 import ComponentWrapper from "@/components/docs/component-wrapper";
 
 ## Overview 
@@ -8,40 +13,62 @@ import ComponentWrapper from "@/components/docs/component-wrapper";
 - Static single column hero section
 - Fully Responsive single column hero section
 
+### preview
+
 <Tabs items={['Preview','Use']}>
   <Tabs.Tab>
   <ComponentWrapper>
-    <SingleColumnHero
-      heading="Sectioner UI"
-      subHeading="Welcome to Sectioner UI, a modern UI library designed to make your web designing faster! this UI library contains jsx and module.css code sections!"
-      buttonUrl="/explore"
-      buttonText="Explore library"
-    />
+    <SingleColumnHero>
+        <Heading>Sectioner UI</Heading>
+        <SubHeading>
+          Welcome to Sectioner UI, a modern UI library designed to make your web
+          designing faster! this UI library contains jsx and module.css code
+          sections!
+        </SubHeading>
+        <Button to={"/explore"}>Explore library</Button>
+      </SingleColumnHero>
   </ComponentWrapper>
   </Tabs.Tab>
 
   <Tabs.Tab>
   
-```jsx showLineNumbers filename="app.jsx" copy
-<SingleColumnHero
-  heading="Sectioner UI"
-  subHeading="Welcome to Sectioner UI, a modern UI library designed to make your web designing faster! this UI library contains jsx and module.css code sections!"
-  buttonUrl="/explore"
-  buttonText="Explore library"
-/>
+```jsx showLineNumbers filename="App.jsx" copy {2-7,12-20}
+import React from "react";
+import {
+  Button,
+  Heading,
+  SingleColumnHero,
+  SubHeading,
+} from "@sectioner/SingleColumnHero/SingleColumnHero";
+
+const App = () => {
+  return (
+    <div>
+      <SingleColumnHero>
+        <Heading>Sectioner UI</Heading>
+        <SubHeading>
+          Welcome to Sectioner UI, a modern UI library designed to make your web
+          designing faster! this UI library contains jsx and module.css code
+          sections!
+        </SubHeading>
+        <Button to={"/explore"}>Explore library</Button>
+      </SingleColumnHero>
+    </div>
+  );
+};
+
+export default App;
 ```
   </Tabs.Tab>
-  
   </Tabs>
-### preview
 
 
 ### installation
 
 
 
-- **Create a Folder**: Make a folder named `sectioner`.
-- **Create Component**: Inside `sectioner`, create a file called `SingleColumnHero.jsx`.
+- **Create a Folder**: Make a folder named `SingleColumnHero` inside `sectioner` folder.
+- **Create Component**: Inside `SingleColumnHero`, create a file called `SingleColumnHero.jsx`.
 - **Add JSX**: Copy the provided JSX code into `SingleColumnHero.jsx`.
 - **Create CSS File**: In the same folder, create a file named `styles.module.css`.
 - **Add CSS**: Copy the provided CSS code into `styles.module.css`.
@@ -63,116 +90,139 @@ import { Tabs } from "nextra/components";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
-const SingleColumnHero = ({
-  heading,
-  subHeading,
-  buttonUrl,
-  buttonText,
-  className,
-}) => {
+// Main Component Wrapper
+export const SingleColumnHero = ({ children, className, ...props }) => {
   return (
-    <div className={`${styles.hero} ${className}`}>
-      <h1 className={styles.heading}>{heading}</h1>
-      <p className={styles.subHeading}>{subHeading}</p>
-      <Link className={styles.button} to={buttonUrl}>
-        {buttonText}
-      </Link>
+    <div className={`${styles.hero} ${className}`} {...props}>
+      {children}
     </div>
   );
 };
 
-export default SingleColumnHero;
+// Heading of component
+export const Heading = ({ children, className, ...props }) => {
+  return (
+    <div className={`${styles.heading} ${className}`} {...props}>
+      {children}
+    </div>
+  );
+};
+
+// Sub-Heading of component
+export const SubHeading = ({ children, className, ...props }) => {
+  return (
+    <div className={`${styles.subHeading} ${className}`} {...props}>
+      {children}
+    </div>
+  );
+};
+
+// Routing Button
+export const Button = ({ children, to, className, ...props }) => {
+  return (
+    <Link className={`${styles.button} ${className}`} to={to} {...props}>
+      {children}
+    </Link>
+  );
+};
 ```
 
   </Tabs.Tab>
-  <Tabs.Tab>
-  ```css showLineNumbers filename="sectioner/singleColumnHero/styles.module.css" copy
-  .hero {
-    padding: 10rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-  }
+<Tabs.Tab>
+```css showLineNumbers filename="sectioner/singleColumnHero/styles.module.css" copy
+.hero {
+  padding: 10rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 
+.heading {
+  background: -webkit-linear-gradient(
+    250deg,
+    hsl(var(--secondary)),
+    hsl(var(--secondary-forground))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 6rem;
+  text-align: center;
+  font-weight: 700;
+  font-family: var(--ff-poppins);
+}
+
+.subHeading {
+  width: 45rem;
+  color: hsl(var(--sub-text));
+  text-align: center;
+  font-family: var(--ff-poppins);
+}
+
+.button {
+  padding: 0.6rem 2.5rem;
+  color: hsl(var(--text-forground));
+  white-space: nowrap;
+  text-decoration: none;
+  margin-top: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius);
+  background-image: linear-gradient(
+    -30deg,
+    hsl(var(--primary)),
+    hsl(var(--primary-forground))
+  );
+  transform: translateY(0);
+  transition: box-shadow 250ms, transform 250ms;
+  font-family: var(--ff-poppins);
+}
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 20px -5px hsl(var(--primary));
+}
+
+.button:focus {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 750px) {
   .heading {
-    background: -webkit-linear-gradient(
-      250deg,
-      hsl(var(--secondary)),
-      hsl(var(--secondary-forground))
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: calc(1.3rem + 4vw);
-    text-align: center;
-    font-weight: 700;
-    font-family: var(--ff-poppins);
+    font-size: 4rem;
   }
-
   .subHeading {
-    width: 45rem;
-    color: hsl(var(--sub-text));
-    text-align: center;
-    font-family: var(--ff-poppins);
+    width: 80vw;
+    font-size: 0.9rem;
   }
-
   .button {
-    padding: 0.6rem 2.5rem;
-    color: inherit;
-    white-space: nowrap;
-    text-decoration: none;
-    margin-top: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 100px;
-    background-image: linear-gradient(
-      -30deg,
-      hsl(var(--primary)),
-      hsl(var(--primary-forground))
-    );
-    color: hsl(var(--text));
-    transform: translateY(0);
-    transition: box-shadow 250ms, transform 250ms;
-    font-family: var(--ff-poppins);
+    padding: 0.5rem 2rem;
   }
-  .button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 2px 20px -5px hsl(var(--primary));
-  }
+}
 
-  @media screen and (max-width: 750px) {
-    .subHeading {
-      width: 80vw;
-      font-size: 0.9rem;
-    }
-    .button {
-      padding: 0.5rem 2rem;
-    }
+@media screen and (max-width: 450px) {
+  .hero {
+    align-items: flex-start;
+    padding: 10rem 1rem;
   }
-
-  @media screen and (max-width: 450px) {
-    .hero {
-      align-items: flex-start;
-      padding: 10rem 1rem;
-    }
-    .heading {
-      text-align: left;
-    }
-    .subHeading {
-      font-size: 0.8rem;
-      text-align: left;
-    }
-    .button {
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-    }
+  .heading {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    text-align: left;
   }
+  .subHeading {
+    font-size: 0.8rem;
+    text-align: left;
+  }
+  .button {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
 ```
   </Tabs.Tab>
-</Tabs
-
->
+</Tabs>
 
 #### Props
 
