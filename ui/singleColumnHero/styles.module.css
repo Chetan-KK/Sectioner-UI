@@ -53,8 +53,11 @@
 }
 
 @media screen and (max-width: 750px) {
+  .heading {
+    font-size: 3rem;
+  }
   .subHeading {
-    width: 80vw;
+    width: 70vw;
     font-size: 0.9rem;
   }
   .button {
@@ -63,6 +66,10 @@
 }
 
 @media screen and (max-width: 450px) {
+  .heading {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
   .hero {
     align-items: flex-start;
     padding: 10rem 1rem;

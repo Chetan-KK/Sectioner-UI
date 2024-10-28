@@ -15,6 +15,21 @@ const config: Config = {
       },
       colors: {
         background: "hsl(var(--background))",
+        border: "rgb(var(--border))",
+      },
+      animation: {
+        fadeIn: "fadeInAnimation 150ms ease-in-out",
+        fadeOut: "fadeOutAnimation 150ms",
+      },
+      keyframes: {
+        fadeInAnimation: {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        fadeOutAnimation: {
+          from: { opacity: "1" },
+          to: { opacity: "0" },
+        },
       },
     },
   },

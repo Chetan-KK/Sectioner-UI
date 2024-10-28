@@ -1,6 +1,7 @@
 import React from "react";
-import { DocsThemeConfig } from "nextra-theme-docs";
+import { DocsThemeConfig, ThemeSwitch } from "nextra-theme-docs";
 import Link from "next/link";
+import { X } from "lucide-react";
 
 const config: DocsThemeConfig = {
   logo: (
@@ -20,7 +21,7 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 2,
     titleComponent: function ({ title, type }) {
       if (type === "separator") {
-        return <div className="separator">- {title}</div>;
+        return <div className="separator">{title}</div>;
       }
       return <>{title}</>;
     },
@@ -44,11 +45,11 @@ const config: DocsThemeConfig = {
   //   dismissible: true,
   // },
   project: {
-    link: "https://github.com/chetan-kk/Sectioner-UI",
+    link: "https://github.com/Chetan-KK/Sectioner-UI",
   },
-  chat: {
-    link: "https://whatsapp.com",
-  },
+  // chat: {
+  //   link: "https://whatsapp.com",
+  // },
   docsRepositoryBase: "https://github.com/chetan-kk/Sectioner-UI",
   footer: {
     component: <footer></footer>,
@@ -60,7 +61,11 @@ const config: DocsThemeConfig = {
   },
   navbar: {
     extraContent: function () {
-      return <>navbar extraContent</>;
+      return (
+        <>
+          <ThemeSwitch lite />
+        </>
+      );
     },
   },
   head: (

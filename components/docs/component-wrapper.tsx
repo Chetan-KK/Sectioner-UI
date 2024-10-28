@@ -1,14 +1,32 @@
-import { Expand } from "lucide-react";
+import { Expand, Flag } from "lucide-react";
 import { Button } from "nextra/components";
 import { ExpandIcon, MenuIcon } from "nextra/icons";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 
 type Props = {
   children: ReactNode;
 };
 
 const ComponentWrapper = ({ children }: Props) => {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+  const [closing, setClosing] = useState(false);
+
+  const handleClose = () => {
+    setClosing(true);
+    setTimeout(() => {
+      setExpanded(false);
+      setClosing(false);
+    }, 150); // Match the duration of your fade-out animation
+  };
+
+  useEffect(() => {
+    if (expanded) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
+    return () => document.body.classList.remove("no-scroll");
+  }, [expanded]);
 
   return (
     <>
@@ -20,18 +38,22 @@ const ComponentWrapper = ({ children }: Props) => {
       >
         <Button
           className="absolute right-4 top-4 p-2"
-          onClick={() => setExpanded((prev) => !prev)}
+          onClick={() => setExpanded(true)}
         >
           <Expand className="h-5 w-5" />
         </Button>
-        <div className="scale-75">{children}</div>
+        <div>{children}</div>
       </div>
       {expanded && (
-        <div className="fixed top-0 left-0 z-20 nx h-screen w-full p-4 backdrop-blur-sm">
-          <div className="relative bg-background h-full rounded-2xl">
+        <div
+          className={`fixed top-0 left-0 z-20 h-screen w-full p-10 backdrop-blur-xl ${
+            closing ? "animate-fadeOut" : "animate-fadeIn"
+          }`}
+        >
+          <div className="relative bg-background border border-border h-full rounded-2xl">
             <Button
               className="absolute right-4 top-4 p-2"
-              onClick={() => setExpanded((prev) => !prev)}
+              onClick={handleClose}
             >
               <Expand className="h-5 w-5" />
             </Button>
