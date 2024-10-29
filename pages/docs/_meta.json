@@ -21,5 +21,8 @@
   },
   "components": {
     "title": "Components"
+  },
+  "sections": {
+    "title": "Sections"
   }
 }

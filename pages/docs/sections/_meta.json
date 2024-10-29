@@ -1,3 +1,5 @@
 {
-  "singleColumnHero": "Single Column hero"
+  "singleColumnHero": {
+    "title": "Single Column hero"
+  }
 }

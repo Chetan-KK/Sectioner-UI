@@ -1,4 +1,8 @@
 {
-  "navbar": "Navbar",
-  "button": "Button"
+  "navbar": {
+    "title": "Navbar"
+  },
+  "button": {
+    "title": "Button"
+  }
 }
