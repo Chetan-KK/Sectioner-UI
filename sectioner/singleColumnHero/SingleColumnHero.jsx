@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
 // Main Component Wrapper
@@ -28,10 +27,10 @@ export const SubHeading = ({ children, className, ...props }) => {
   );
 };
 
-// Routing Button
-export const Button = ({ children, to, className, ...props }) => {
+// ButtonsWrapper
+export const ButtonsWrapper = ({ children, className, ...props }) => {
   return (
-    <div className={`${styles.button} ${className}`} to={to} {...props}>
+    <div className={`${styles.buttonsWrapper} ${className}`} {...props}>
       {children}
     </div>
   );

@@ -1,12 +1,16 @@
 # Single Column hero
 
 import {
-  Button,
   Heading,
   SingleColumnHero,
   SubHeading,
-} from "@/ui/singleColumnHero/SingleColumnHero";
-import ComponentWrapper from "@/components/docs/component-wrapper";
+  ButtonsWrapper
+} from "@/sectioner/singleColumnHero/SingleColumnHero";
+import {
+  Button, LinkButton
+} from "@/sectioner/ui/Button/Button";
+
+import SectionWrapper from "@/components/docs/section-wrapper";
 
 ## Overview 
 
@@ -15,33 +19,40 @@ import ComponentWrapper from "@/components/docs/component-wrapper";
 
 ### preview
 
+import { Tabs } from "nextra/components";
+
+
 <Tabs items={['Preview','Use']}>
   <Tabs.Tab>
-  <ComponentWrapper>
-    <SingleColumnHero>
+  <SectionWrapper>
+      <SingleColumnHero>
         <Heading>Sectioner UI</Heading>
         <SubHeading>
           Welcome to Sectioner UI, a modern UI library designed to make your web
           designing faster! this UI library contains jsx and module.css code
           sections!
         </SubHeading>
-        <Button to={"/explore"}>Explore library</Button>
+        <ButtonsWrapper>
+          <Button to={"/explore"} varient={"outline"}>Explore Components</Button>
+          <Button to={"/explore"}>Explore Sections</Button>
+        </ButtonsWrapper>
       </SingleColumnHero>
-  </ComponentWrapper>
+  </SectionWrapper>
   </Tabs.Tab>
 
   <Tabs.Tab>
   
-```jsx showLineNumbers filename="App.jsx" copy {2-7,12-20}
+```jsx showLineNumbers filename="App.jsx" copy {2-8,13-24}
 import React from "react";
 import {
-  Button,
   Heading,
   SingleColumnHero,
   SubHeading,
-} from "@sectioner/SingleColumnHero/SingleColumnHero";
+  ButtonsWrapper
+} from "components/sectioner/singleColumnHero/SingleColumnHero";
+import { Button, LinkButton } from "components/sectioner/ui/Button/Button";
 
-const App = () => {
+const Hero = () => {
   return (
     <div>
       <SingleColumnHero>
@@ -51,13 +62,16 @@ const App = () => {
           designing faster! this UI library contains jsx and module.css code
           sections!
         </SubHeading>
-        <Button to={"/explore"}>Explore library</Button>
+        <ButtonsWrapper>
+          <LinkButton to={"/explore"} varient={"outline"}>Explore Components</LinkButton>
+          <LinkButton to={"/explore"}>Explore Sections</LinkButton>
+        </ButtonsWrapper>
       </SingleColumnHero>
     </div>
   );
 };
 
-export default App;
+export default Hero;
 ```
   </Tabs.Tab>
   </Tabs>
@@ -65,29 +79,19 @@ export default App;
 
 ### installation
 
-
-
 - **Create a Folder**: Make a folder named `SingleColumnHero` inside `sectioner` folder.
-- **Create Component**: Inside `SingleColumnHero`, create a file called `SingleColumnHero.jsx`.
+- **Create Component**: Inside `singleColumnHero`, create a file called `SingleColumnHero.jsx`.
 - **Add JSX**: Copy the provided JSX code into `SingleColumnHero.jsx`.
 - **Create CSS File**: In the same folder, create a file named `styles.module.css`.
 - **Add CSS**: Copy the provided CSS code into `styles.module.css`.
 - **Use Component**: Import and use `SingleColumnHero` in your project where needed.
 
-import { Callout } from 'nextra/components';
- 
-<Callout type="warning" emoji="⚠">
-**note**: Requires [react-router-dom ↗](https://reactrouter.com/en/main/start/tutorial) for redirecting to other page.
-</Callout>
-
-import { Tabs } from "nextra/components";
 
 <Tabs items={['jsx', 'css']}>
   
   <Tabs.Tab>
 
 ```jsx showLineNumbers filename="sectioner/singleColumnHero/SingleColumnHero.jsx" copy
-import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
 // Main Component Wrapper
@@ -117,12 +121,12 @@ export const SubHeading = ({ children, className, ...props }) => {
   );
 };
 
-// Routing Button
-export const Button = ({ children, to, className, ...props }) => {
+// ButtonsWrapper
+export const ButtonsWrapper = ({ children, className, ...props }) => {
   return (
-    <Link className={`${styles.button} ${className}`} to={to} {...props}>
+    <div className={`${styles.buttonsWrapper} ${className}`} {...props}>
       {children}
-    </Link>
+    </div>
   );
 };
 ```
@@ -142,12 +146,13 @@ export const Button = ({ children, to, className, ...props }) => {
 .heading {
   background: -webkit-linear-gradient(
     250deg,
-    hsl(var(--secondary)),
-    hsl(var(--secondary-forground))
+    hsl(var(--primary)),
+    hsl(var(--secondary))
   );
+  line-height: 120%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 6rem;
+  font-size: 5rem;
   text-align: center;
   font-weight: 700;
   font-family: var(--ff-poppins);
@@ -155,42 +160,23 @@ export const Button = ({ children, to, className, ...props }) => {
 
 .subHeading {
   width: 45rem;
-  color: hsl(var(--sub-text));
+  color: hsl(var(--muted));
   text-align: center;
   font-family: var(--ff-poppins);
+  margin-bottom: 0.4rem;
 }
 
-.button {
-  padding: 0.6rem 2.5rem;
-  color: hsl(var(--text-forground));
-  white-space: nowrap;
-  text-decoration: none;
-  margin-top: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: var(--radius);
-  background-image: linear-gradient(
-    -30deg,
-    hsl(var(--primary)),
-    hsl(var(--primary-forground))
-  );
-  transform: translateY(0);
-  transition: box-shadow 250ms, transform 250ms;
-  font-family: var(--ff-poppins);
-}
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 20px -5px hsl(var(--primary));
-}
-
-.button:focus {
-  outline: 2px solid hsl(var(--primary));
-  outline-offset: 3px;
+.buttonsWrapper {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 750px) {
   .heading {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   .subHeading {
     width: 80vw;
@@ -207,11 +193,12 @@ export const Button = ({ children, to, className, ...props }) => {
     padding: 10rem 1rem;
   }
   .heading {
-    font-size: 3rem;
+    font-size: 2.7rem;
     line-height: 3.5rem;
     text-align: left;
   }
   .subHeading {
+    width: 90vw;
     font-size: 0.8rem;
     text-align: left;
   }
@@ -219,38 +206,46 @@ export const Button = ({ children, to, className, ...props }) => {
     margin-top: 0.5rem;
     font-size: 0.8rem;
   }
+
+  .buttonsWrapper {
+    justify-content: flex-start;
+  }
 }
 ```
   </Tabs.Tab>
 </Tabs>
 
-#### Props
+#### Components
 
 Use the following props to customize the component.
 
 {<table className="nx-mt-6 nx-p-0 first:nx-mt-0">
   <thead>
     <tr>
-      <th align="center">Prop</th>
+      <th align="center">Component</th>
       <th align="center">Description</th>
     </tr>
   </thead>
   <tbody>
   <tr>
-      <td>heading</td>
+      <td>SingleColumnHero</td>
+      <td>Section</td>
+    </tr>
+  <tr>
+      <td>Heading</td>
       <td>Main heading of section</td>
     </tr>
     <tr>
-      <td>subHeading</td>
+      <td>SubHeading</td>
       <td>Sub-heading of section</td>
     </tr>
     <tr>
-      <td>buttonUrl</td>
-      <td>Router URL where button will route {"("} Uses <a target="_blank" href="https://reactrouter.com/en/main/components/link">Link ↗</a> from <a target="_blank" href="https://reactrouter.com/en/main/start/tutorial">React-router-dom ↗</a> {")"}</td>
+      <td>ButtonsWrapper</td>
+      <td>Wrapper for buttons</td>
     </tr>
     <tr>
-      <td>buttonText</td>
-      <td>Text inside button</td>
+      <td>Button</td>
+      <td> <a href="/docs/components/button">Button</a> Component</td>
     </tr>
   </tbody>
 </table>

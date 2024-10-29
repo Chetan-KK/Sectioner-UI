@@ -18,11 +18,11 @@ To get started with Sectioner UI, follow these steps:
 1. Create a [React](/setup/react) or [Next.js](/setup/next) project.
 2. Copy the CSS variables into your `globals.css` file.
 
-```css showLineNumbers filename="globals.css" copy
-/* Importing Poppins font */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+```css showLineNumbers filename="globals.css" copy {15-24,26,35-44,48-49}
+/* importing poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-/* Resetting default margin and padding */
+/* removing extra margin and padding */
 *,
 *::before,
 *::after {
@@ -31,38 +31,61 @@ To get started with Sectioner UI, follow these steps:
   box-sizing: border-box;
 }
 
-/* CSS variables used in components */
+/* css variables used in components */
 :root {
-  --background: 255 100% 100%;
-  --primary: 200 100% 50%;
-  --primary-foreground: 218 100% 50%;
-  --secondary: 319 100% 50%;
-  --secondary-foreground: 277 100% 50%;
-  --text: 255 100% 0%;
-  --text-foreground: 255 100% 100%;
-  --sub-text: 255 0% 30%;
-  font-family: "Poppins", sans-serif;
+  --text: 267, 30%, 20%;
+  --background: 263, 40%, 96%;
+  --primary: 266, 40%, 28%;
+  --secondary: 267, 46%, 66%;
+  --accent: 267, 51%, 44%;
+  --muted: 267 20% 35%;
+  --text-forground: 255 100% 100%;
+  --border: 267, 25%, 50%;
+  --danger: 0, 84.2%, 60.2%;
+  --success: 134, 51%, 36%;
+
+  --radius: 100px;
+
+  /* default font */
+  --ff-poppins: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--ff-poppins);
 }
 
-/* CSS variables for dark mode */
+/* css variables for dark mode */
 .dark {
-  --background: 255 100% 0%;
-  --primary: 200 100% 50%;
-  --primary-foreground: 218 100% 50%;
-  --secondary: 319 100% 50%;
-  --secondary-foreground: 277 100% 50%;
-  --text: 255 100% 100%;
-  --text-foreground: 255 100% 0%;
-  --sub-text: 255 0% 50%;
+  --text: 267, 27%, 94%;
+  --background: 266, 37%, 4%;
+  --primary: 266, 40%, 72%;
+  --secondary: 267, 46%, 34%;
+  --accent: 267, 51%, 56%;
+  --muted: 267 7% 35%;
+  --text-forground: 255 100% 100%;
+  --border: 267, 15%, 20%;
+  --danger: 0, 62.8%, 30.6%;
+  --success: 130, 46%, 30%;
 }
 
-body {
+.dark {
   background-color: hsl(var(--background));
   color: hsl(var(--text));
+}
+
+::selection {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--accent));
+}
+
+/* foucs outline */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 3px;
 }
 ```
 
 ### Next Steps
 
-- Refer to the specific setup guides for [React](docs/setup/react) or [Next.js](docs/setup/next) for detailed instructions on integrating Sectioner UI into your project.
+- Refer to the specific setup guides for [React](setup/react) or [Next.js](setup/next) for detailed instructions on integrating Sectioner UI into your project.
 - Explore the component documentation to start using and customizing the UI components in your application.

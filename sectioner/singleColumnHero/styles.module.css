@@ -10,12 +10,13 @@
 .heading {
   background: -webkit-linear-gradient(
     250deg,
-    hsl(var(--secondary)),
-    hsl(var(--secondary-forground))
+    hsl(var(--primary)),
+    hsl(var(--secondary))
   );
+  line-height: 120%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 6rem;
+  font-size: 5rem;
   text-align: center;
   font-weight: 700;
   font-family: var(--ff-poppins);
@@ -23,42 +24,23 @@
 
 .subHeading {
   width: 45rem;
-  color: hsl(var(--sub-text));
+  color: hsl(var(--muted));
   text-align: center;
   font-family: var(--ff-poppins);
+  margin-bottom: 0.4rem;
 }
 
-.button {
-  padding: 0.6rem 2.5rem;
-  color: hsl(var(--text-forground));
-  white-space: nowrap;
-  text-decoration: none;
-  margin-top: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: var(--radius);
-  background-image: linear-gradient(
-    -30deg,
-    hsl(var(--primary)),
-    hsl(var(--primary-forground))
-  );
-  transform: translateY(0);
-  transition: box-shadow 250ms, transform 250ms;
-  font-family: var(--ff-poppins);
-}
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 20px -5px hsl(var(--primary));
-}
-
-.button:focus {
-  outline: 2px solid hsl(var(--primary));
-  outline-offset: 3px;
+.buttonsWrapper {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 750px) {
   .heading {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   .subHeading {
     width: 80vw;
@@ -75,16 +57,21 @@
     padding: 10rem 1rem;
   }
   .heading {
-    font-size: 3rem;
+    font-size: 2.7rem;
     line-height: 3.5rem;
     text-align: left;
   }
   .subHeading {
+    width: 90vw;
     font-size: 0.8rem;
     text-align: left;
   }
   .button {
     margin-top: 0.5rem;
     font-size: 0.8rem;
+  }
+
+  .buttonsWrapper {
+    justify-content: flex-start;
   }
 }

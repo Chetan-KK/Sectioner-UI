@@ -14,48 +14,66 @@
 }
 
 /* css variables used in components */
-.preview-component-wrapper {
-  --background: 255 0% 96%;
-  --primary: 200 100% 50%;
-  --primary-forground: 218 100% 50%;
-  --secondary: 319 100% 50%;
-  --secondary-forground: 277 100% 50%;
-  --text: 255 100% 0%;
+.preview-wrapper {
+  --text: 267, 30%, 20%;
+  --background: 263, 40%, 96%;
+  --primary: 266, 40%, 28%;
+  --secondary: 267, 46%, 66%;
+  --accent: 267, 51%, 44%;
+  --muted: 267 20% 35%;
   --text-forground: 255 100% 100%;
-  --sub-text: 255 0% 25%;
-  --border: 255 0% 20%;
+  --border: 267, 25%, 50%;
+  --danger: 0, 84.2%, 60.2%;
+  --success: 134, 51%, 36%;
 
   --radius: 100px;
 
   /* default font */
-  font-family: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
+  --ff-poppins: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--ff-poppins);
 }
 
 /* css variables for dark mode */
-.preview-component-wrapper.dark {
-  --background: 255 0% 4%;
-  --primary: 200, 100%, 50%;
-  --primary-forground: 218 100% 50%;
-  --secondary: 319, 100%, 50%;
-  --secondary-forground: 277 100% 50%;
-  --text: 255 100% 100%;
-  --text-forground: 255 100% 0%;
-  --sub-text: 255 0% 25%;
-  --border: 255 0% 20%;
+.preview-wrapper.dark {
+  --text: 267, 27%, 94%;
+  --background: 266, 37%, 4%;
+  --primary: 266, 40%, 72%;
+  --secondary: 267, 46%, 34%;
+  --accent: 267, 51%, 56%;
+  --muted: 267 7% 35%;
+  --text-forground: 255 100% 100%;
+  --border: 267, 15%, 20%;
+  --danger: 0, 62.8%, 30.6%;
+  --success: 130, 46%, 30%;
 }
 
-.preview-component-wrapper {
+.preview-wrapper ::selection {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--accent));
+}
+
+.preview-wrapper {
   background-color: hsl(var(--background));
   color: hsl(var(--text));
 }
-.preview-component-wrapper.dark {
+.preview-wrapper.dark {
   background-color: hsl(var(--background));
   color: hsl(var(--text));
+}
+
+/* foucs outline */
+.preview-wrapper button:focus,
+.preview-wrapper a:focus,
+.preview-wrapper input:focus,
+.preview-wrapper textarea:focus {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
 }
 
 /* documentation css */
 :root {
   --text: 255 100% 0%;
+  --muted: 267, 7%, 35%;
   --doc-border: 235 235 235;
   --doc-pre: 250 250 250;
   --doc-pre-2: 253 253 253;

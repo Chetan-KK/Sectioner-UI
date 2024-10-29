@@ -7,8 +7,8 @@ const config: DocsThemeConfig = {
   logo: (
     <h1 style={{ fontWeight: "bold", fontSize: "1.2rem" }}>Sectioner UI</h1>
   ),
-  primaryHue: 200,
-  primarySaturation: 100,
+  primaryHue: 267,
+  primarySaturation: 50,
   toc: {
     backToTop: true,
     title: "this page",
@@ -23,7 +23,7 @@ const config: DocsThemeConfig = {
       if (type === "separator") {
         return <div className="separator">{title}</div>;
       }
-      return <>{title}</>;
+      return <span style={{ color: "hsl(var(--text))" }}>{title}</span>;
     },
     toggleButton: true,
   },
