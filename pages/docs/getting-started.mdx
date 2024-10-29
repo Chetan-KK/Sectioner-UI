@@ -1,15 +1,15 @@
 # Getting Started
 
-import { Cards, Card } from "nextra/components";
+import { Cards } from "nextra/components";
 import { NextjsIcon, ReactjsIcon, VitejsIcon } from '@/assets/icons/Icons';
 
 ## Frameworks
 
 <Cards>
   {/* <Card icon={<JsIcon/>} title="Vanilla JS" href="/docs/setup/vanilla" style={{fill:"hsl(var(--text))"}}/> */}
-  <Card icon={<ReactjsIcon />} title="React JS" href="/docs/setup/react" style={{fill:"hsl(var(--text))"}} />
-  <Card icon={<><VitejsIcon />+<ReactjsIcon /></>} title="Vite + React" href="/docs/setup/vite-react" style={{fill:"hsl(var(--text))"}} />
-  <Card icon={<NextjsIcon />} title="Next JS" href="/docs/setup/next" style={{fill:"hsl(var(--text))"}} />
+  <Cards.Card icon={<ReactjsIcon />} title="React JS" href="/docs/setup/react" style={{fill:"hsl(var(--text))"}} />
+  <Cards.Card icon={<><VitejsIcon />+<ReactjsIcon /></>} title="Vite + React" href="/docs/setup/vite-react" style={{fill:"hsl(var(--text))"}} />
+  <Cards.Card icon={<NextjsIcon />} title="Next JS" href="/docs/setup/next" style={{fill:"hsl(var(--text))"}} />
   {/* <Cards icon={<TailwindIcon/>} title="Tailwind CSS" href="/docs/setup/tailwind" style={{fill:"hsl(var(--text))"}}/> */}
 </Cards>
 

@@ -1,30 +1,28 @@
 import React from "react";
 import { DocsThemeConfig, ThemeSwitch } from "nextra-theme-docs";
-import Link from "next/link";
-import { X } from "lucide-react";
 
 const config: DocsThemeConfig = {
   logo: (
     <h1 style={{ fontWeight: "bold", fontSize: "1.2rem" }}>Sectioner UI</h1>
   ),
-  primaryHue: 267,
-  primarySaturation: 50,
+  color: {
+    hue: 267,
+    saturation: 50,
+  },
   toc: {
     backToTop: true,
     title: "this page",
   },
-  // faviconGlyph:"Se",
+
+  backgroundColor: {
+    light: "244, 241, 249",
+    dark: "10, 6, 14",
+  },
   search: {
     placeholder: "search...",
   },
   sidebar: {
     defaultMenuCollapseLevel: 2,
-    titleComponent: function ({ title, type }) {
-      if (type === "separator") {
-        return <div className="separator">{title}</div>;
-      }
-      return <span style={{ color: "hsl(var(--text))" }}>{title}</span>;
-    },
     toggleButton: true,
   },
   // banner: {
@@ -54,11 +52,7 @@ const config: DocsThemeConfig = {
   footer: {
     component: <footer></footer>,
   },
-  useNextSeoProps() {
-    return {
-      titleTemplate: "%s - Sectioner UI",
-    };
-  },
+
   navbar: {
     extraContent: function () {
       return (

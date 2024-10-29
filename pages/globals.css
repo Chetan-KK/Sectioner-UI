@@ -5,13 +5,13 @@
 @tailwind utilities;
 
 /* removing extra margin and padding */
-*,
+/* *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 /* css variables used in components */
 .preview-wrapper {
@@ -70,20 +70,49 @@
   outline-offset: 2px;
 }
 
-/* documentation css */
+/* 
+  *documentation css 
+*/
+
 :root {
-  --text: 255 100% 0%;
-  --muted: 267, 7%, 35%;
-  --doc-border: 235 235 235;
-  --doc-pre: 250 250 250;
-  --doc-pre-2: 253 253 253;
+  --text: 267, 30%, 20%;
+  --background: 263, 40%, 96%;
+  --primary: 266, 40%, 28%;
+  --secondary: 267, 46%, 66%;
+  --accent: 267, 51%, 44%;
+  --muted: 267 20% 35%;
+  --text-forground: 255 100% 100%;
+  --border: 267, 25%, 50%;
+  --danger: 0, 84.2%, 60.2%;
+  --success: 134, 51%, 36%;
+
+  --doc-border: 267, 25%, 80%;
+  --doc-pre: 263, 40%, 93%;
+  --doc-pre-2: 263, 40%, 91%;
+  --doc-pre-3: 263, 40%, 71%;
 }
 
 .dark {
-  --text: 255 100% 100%;
-  --doc-border: 38 38 38;
-  --doc-pre: 21 21 21;
-  --doc-pre-2: 24 24 24;
+  --text: 267, 27%, 94%;
+  --background: 266, 37%, 4%;
+  --primary: 266, 40%, 72%;
+  --secondary: 267, 46%, 34%;
+  --accent: 267, 51%, 56%;
+  --muted: 267 7% 35%;
+  --text-forground: 255 100% 100%;
+  --border: 267, 15%, 20%;
+  --danger: 0, 62.8%, 30.6%;
+  --success: 130, 46%, 30%;
+
+  --doc-border: 267, 15%, 20%;
+  --doc-pre: 266, 37%, 5%;
+  --doc-pre-2: 266, 37%, 8%;
+  --doc-pre-3: 266, 57%, 15%;
+}
+
+body {
+  /* background-color: hsl(var(--background)) !important; */
+  color: hsl(var(--text)) !important;
 }
 
 /* scrollbar */
@@ -94,7 +123,7 @@
   background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--text));
+  background-color: hsl(var(--muted));
   border-radius: 10px;
 }
 
@@ -107,63 +136,79 @@
 .link:hover {
   text-decoration: underline;
 }
-
+/* 
 pre::-webkit-scrollbar {
   display: none;
+} */
+
+.nextra-content {
+  color: hsl(var(--text));
 }
 
-.nextra-code-block div:nth-child(1) {
-  background-color: rgb(var(--doc-pre)) !important;
-  border: 1px solid rgb(var(--doc-border));
-}
-.nextra-button {
-  background-color: rgb(var(--doc-pre)) !important;
+.nextra-code {
+  box-shadow: 0 !important;
 }
 
-pre {
-  -ms-overflow-style: none;
-  background-color: rgb(241, 241, 241);
-  scrollbar-width: none;
-  background-color: rgb(var(--doc-pre)) !important;
-  border: 1px solid rgb(var(--doc-border));
-  /* box-shadow: 0 0 0 1px ; */
+.nextra-code > div {
+  background-color: hsl(var(--doc-pre-2)) !important;
+  border-color: hsl(var(--doc-border)) !important;
+}
+
+.nextra-steps {
+  border-left: 1px solid hsl(var(--accent), 0.3) !important;
+}
+.nextra-scrollbar > div {
+  border-bottom: 1px solid hsl(var(--border), 0.4) !important;
+}
+
+.nextra-steps h3::before {
+  background-color: hsl(var(--secondary)) !important;
+  color: hsl(var(--text));
+}
+
+.nextra-code pre {
+  background-color: hsl(var(--doc-pre)) !important;
+  box-shadow: inset 0 0 0 1px hsl(var(--doc-border)) !important;
+}
+.nextra-code pre span[data-highlighted-line] {
+  background-color: hsl(var(--doc-pre-3), 0.3) !important;
 }
 
 .nextra-filetree > div {
   width: 100%;
+  border-color: hsl(var(--doc-border)) !important;
 }
 
-.nextra-menu-desktop li a,
-.nextra-menu-desktop li button {
-  padding: 4px 8px !important;
-  font-size: 0.8rem !important;
+.nextra-sidebar-container div {
+  color: hsl(var(--text)) !important;
 }
 
-.nextra-menu-desktop li:has(.separator) {
-  border-top: 1px solid rgb(var(--doc-border));
-  margin: 5px 0 0 0 !important;
+.nextra-sidebar-container li a,
+.nextra-sidebar-container li button {
+  color: hsl(var(--text)) !important;
+}
+
+.nextra-sidebar-container li.active {
+  background-color: hsl(var(--secondary), 0.5) !important;
+  border-radius: 5px;
+}
+
+.nextra-content table {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.nextra-content table th,
+.nextra-content table td {
+  padding: 7px 10px;
+  border: 1px solid hsl(var(--doc-border)) !important;
 }
 
 .nextra-content table tr,
-.nextra-content table tbody,
-.nextra-content table thead {
-  width: 100vw;
-}
-
 .nextra-content table th {
-  background-color: rgb(var(--doc-pre-2)) !important;
-}
-.nextra-content table th,
-.nextra-content table td {
-  /* width: 100%; */
-  min-width: 150px;
-  border: 1px solid rgb(var(--doc-border)) !important;
-}
-
-.nextra-content table tr {
-  background-color: rgb(var(--doc-pre)) !important;
+  background-color: hsl(var(--doc-pre)) !important;
 }
 
 .nextra-content table tr:nth-child(even) {
-  background-color: rgb(var(--doc-pre-2)) !important;
+  background-color: hsl(var(--doc-pre-2)) !important;
 }

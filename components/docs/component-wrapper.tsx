@@ -23,12 +23,7 @@ const ComponentWrapper = ({ children, classname }: Props) => {
 
   return (
     <>
-      <div
-        className="rounded-lg overflow-hidden"
-        style={{
-          border: "1px solid rgb(var(--doc-border))",
-        }}
-      >
+      <div className="rounded-lg overflow-hidden border border-border">
         <div className={`${wrapperClassName}`}>
           <div
             className={`flex items-center justify-center py-10 px-3 flex-row  ${classname}`}

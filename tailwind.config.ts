@@ -15,7 +15,7 @@ const config: Config = {
       },
       colors: {
         background: "hsl(var(--background))",
-        border: "rgb(var(--doc-border))",
+        border: "hsl(var(--doc-border))",
       },
       animation: {
         fadeIn: "fadeInAnimation 150ms ease-in-out",

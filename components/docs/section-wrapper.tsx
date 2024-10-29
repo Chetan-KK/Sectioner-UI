@@ -41,12 +41,7 @@ const SectionWrapper = ({ children }: Props) => {
 
   return (
     <>
-      <div
-        className="relative rounded-lg overflow-hidden"
-        style={{
-          border: "1px solid rgb(var(--doc-border))",
-        }}
-      >
+      <div className="relative rounded-lg overflow-hidden border border-border">
         <Button
           className="absolute md:right-4 right-3 top-3 md:top-4 p-2"
           onClick={() => setExpanded(true)}
