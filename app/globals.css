@@ -2,23 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+/* css variables used in components */
 :root {
-  --background:255 255 255;
-  --text:15 23 42;
+  --text: 267 30% 20%;
+  --background: 263 40% 96%;
+  --primary: 266 40% 28%;
+  --secondary: 267 46% 66%;
+  --accent: 267 51% 44%;
+  --muted: 267 20% 35%;
+  --text-forground: 255 100% 100%;
+  --border: 267 25% 50%;
+  --danger: 0 84.2% 60.2%;
+  --success: 134 51% 36%;
+
+  --radius: 100px;
 }
 
-[data-theme='dark'] {
-  --background: 17 17 17;
-  --text:241 245 249;
+/* css variables for dark mode */
+.dark {
+  --text: 267 27% 94%;
+  --background: 266 37% 4%;
+  --primary: 266 40% 72%;
+  --secondary: 267 46% 34%;
+  --accent: 267 51% 56%;
+  --muted: 267 7% 35%;
+  --text-forground: 255 100% 100%;
+  --border: 267 15% 20%;
+  --danger: 0 62.8% 30.6%;
+  --success: 130 46% 30%;
 }
 
 body {
-  background-color: rgb(var(--background));
-  color: rgb(var(--text));
+  background-color: hsl(var(--background));
+  color: hsl(var(--text-forground));
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::selection {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--accent));
+}
+
+/* foucs outline */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 3px;
 }

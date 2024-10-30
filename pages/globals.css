@@ -15,36 +15,9 @@
 
 /* css variables used in components */
 .preview-wrapper {
-  --text: 267, 30%, 20%;
-  --background: 263, 40%, 96%;
-  --primary: 266, 40%, 28%;
-  --secondary: 267, 46%, 66%;
-  --accent: 267, 51%, 44%;
-  --muted: 267 20% 35%;
-  --text-forground: 255 100% 100%;
-  --border: 267, 25%, 50%;
-  --danger: 0, 84.2%, 60.2%;
-  --success: 134, 51%, 36%;
-
-  --radius: 100px;
-
   /* default font */
   --ff-poppins: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
   font-family: var(--ff-poppins);
-}
-
-/* css variables for dark mode */
-.preview-wrapper.dark {
-  --text: 267, 27%, 94%;
-  --background: 266, 37%, 4%;
-  --primary: 266, 40%, 72%;
-  --secondary: 267, 46%, 34%;
-  --accent: 267, 51%, 56%;
-  --muted: 267 7% 35%;
-  --text-forground: 255 100% 100%;
-  --border: 267, 15%, 20%;
-  --danger: 0, 62.8%, 30.6%;
-  --success: 130, 46%, 30%;
 }
 
 .preview-wrapper {
@@ -79,15 +52,18 @@
   --text: 267, 30%, 20%;
   --background: 263, 40%, 96%;
   --primary: 266, 40%, 28%;
-  --secondary: 267, 46%, 66%;
+  --secondary: 267, 46%, 51%;
   --accent: 267, 51%, 44%;
-  --muted: 267 20% 35%;
+  /* set this with realtime colors site */
+  --muted: var(--text), 70%;
   --text-forground: 255 100% 100%;
-  --border: 267, 25%, 50%;
+  --border: 267, 25%, 75%;
   --danger: 0, 84.2%, 60.2%;
   --success: 134, 51%, 36%;
 
-  --doc-border: 267, 25%, 80%;
+  --radius: 5rem;
+
+  --doc-border: 267, 25%, 75%;
   --doc-pre: 263, 40%, 93%;
   --doc-pre-2: 263, 40%, 91%;
   --doc-pre-3: 263, 40%, 71%;
@@ -99,7 +75,7 @@
   --primary: 266, 40%, 72%;
   --secondary: 267, 46%, 34%;
   --accent: 267, 51%, 56%;
-  --muted: 267 7% 35%;
+  --muted: var(--text), 40%;
   --text-forground: 255 100% 100%;
   --border: 267, 15%, 20%;
   --danger: 0, 62.8%, 30.6%;
@@ -115,18 +91,6 @@ body {
   color: hsl(var(--text)) !important;
 }
 
-/* scrollbar */
-::-webkit-scrollbar {
-  --size: 2px;
-  width: var(--size);
-  height: var(--size);
-  background-color: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--muted));
-  border-radius: 10px;
-}
-
 /* nextra document */
 .nextra-content {
   color: hsl(var(--text));
@@ -135,8 +99,14 @@ body {
 /* all links in nextra content */
 .nextra-content a {
   color: hsl(var(--accent));
-  text-decoration: underline;
-  text-underline-offset: 3px;
+}
+
+.nextra-card {
+  border: 1px solid hsl(var(--doc-border)) !important;
+}
+.nextra-card:hover {
+  border: 1px solid hsl(var(--doc-border)) !important;
+  background-color: hsl(var(--primary), 0.05) !important;
 }
 
 /* nextra sidebar */

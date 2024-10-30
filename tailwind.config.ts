@@ -14,8 +14,19 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
+        text: "hsl(var(--text))",
         background: "hsl(var(--background))",
-        border: "hsl(var(--doc-border))",
+        primary: "hsl(var(--primary))",
+        secondary: "hsl(var(--secondary))",
+        accent: "hsl(var(--accent))",
+        muted: "hsl(var(--muted))",
+        textForeground: "hsl(var(--text-forground))",
+        border: "hsl(var(--border))",
+        danger: "hsl(var(--danger))",
+        success: "hsl(var(--success))",
+      },
+      borderRadius: {
+        radius: "var(--radius)",
       },
       animation: {
         fadeIn: "fadeInAnimation 150ms ease-in-out",
@@ -35,4 +46,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;

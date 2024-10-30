@@ -20,14 +20,14 @@
   color: hsl(var(--text-forground));
 }
 .default:hover {
-  background-color: hsl(var(--secondary), 0.7);
+  background-color: hsl(var(--secondary), 0.8);
 }
 
 /* outline varient */
 .outline {
   border: 1px solid hsl(var(--border));
   background-color: transparent;
-  color: hsl(var(--primary));
+  color: hsl(var(--text));
 }
 
 .outline:hover {

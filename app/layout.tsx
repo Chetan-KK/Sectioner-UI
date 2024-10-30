@@ -18,10 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider>
+        <ThemeProvider themes={["light", "dark"]} attribute="class">
           {children}
-          </ThemeProvider>
-          </body>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
