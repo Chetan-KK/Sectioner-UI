@@ -8,7 +8,7 @@
 import { Callout } from 'nextra/components';
  
 <Callout type="info" emoji="!!">
-**note**: Requires [react-router-dom ↗](https://reactrouter.com/en/main/start/tutorial) for redirecting to other page.
+**note**: Users [react-router-dom ↗](https://reactrouter.com/en/main/start/tutorial) for redirecting to other page.
 </Callout>
 
 ### preview
@@ -16,88 +16,90 @@ import { Callout } from 'nextra/components';
 import { Tabs } from "nextra/components";
 import ComponentWrapper from "@/components/docs/component-wrapper";
 import {
-  Button, LinkButton
+  Button
 } from "@/sectioner/ui/Button/Button";
-import { LayoutTemplate } from 'lucide-react'
+import { LayoutTemplate } from 'lucide-react';
+
+#### Normal Buttons
 
 <Tabs items={['Preview','Use']}>
 <Tabs.Tab>
 <ComponentWrapper classname="gap-3 flex-wrap">
     <Button>Default</Button>
-    <Button varient="outline">Outline</Button>
-    <Button varient="ghost">Ghost</Button>
-    <LinkButton to={"/dashboard"}>Link Button</LinkButton>
-    <LinkButton to={"/dashboard"} size="icon" varient="outline"><LayoutTemplate className='h-5 w-5'/></LinkButton>
-    <Button varient="danger">Danger</Button>
-    <Button varient="success">Success</Button>
+    <Button variant="outline">Outline</Button>
+    <Button variant="ghost">Ghost</Button>
+    <Button to={"/dashboard"}>Link Button</Button>
+    <Button to={"/dashboard"} size="icon" variant="outline"><LayoutTemplate className='h-5 w-5'/></Button>
+    <Button variant="danger">Danger</Button>
+    <Button variant="success">Success</Button>
 </ComponentWrapper>
 </Tabs.Tab>
 <Tabs.Tab>
 ```jsx showLineNumbers filename="App.jsx" copy
-<Button>Button</Button>
-<Button varient="outline">Button</Button>
-<Button varient="ghost">Button</Button>
-<LinkButton to={"/dashboard"}>Dashboard</LinkButton>
-<Button varient="danger">Danger</Button>
-<Button varient="success">Success</Button>
+<Button>Default</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+<Button to={"/dashboard"}>Link Button</Button>
+<Button to={"/dashboard"} size="icon" variant="outline"><LayoutTemplate className='h-5 w-5'/></Button>
+<Button variant="danger">Danger</Button>
+<Button variant="success">Success</Button>
 ```
 </Tabs.Tab>
 </Tabs>
 
-### Installation
+#### Disabled Buttons
 
-- **Create a Folder**: Make a folder named `Button` inside `sectioner/ui` folder.
-- **Create Component**: Inside `Button`, create a file called `Button.jsx`.
-- **Add JSX**: Copy the provided JSX code into `Button.jsx`.
-- **Create CSS File**: In the same folder, create a file named `styles.module.css`.
-- **Add CSS**: Copy the provided CSS code into `styles.module.css`.
-- **Use Component**: Import and use `Button` in your project where needed.
+- Use `disabled` to disable Buttons.
+
+<Tabs items={['Preview','Use']}>
+<Tabs.Tab>
+<ComponentWrapper classname="gap-3 flex-wrap">
+    <Button disabled>Default</Button>
+    <Button disabled variant="outline">Outline</Button>
+    <Button disabled variant="ghost">Ghost</Button>
+    <Button disabled to={"/dashboard"}>Link Button</Button>
+    <Button disabled to={"/dashboard"} size="icon" variant="outline"><LayoutTemplate className='h-5 w-5'/></Button>
+    <Button disabled variant="danger">Danger</Button>
+    <Button disabled variant="success">Success</Button>
+</ComponentWrapper>
+</Tabs.Tab>
+<Tabs.Tab>
+```jsx showLineNumbers filename="App.jsx" copy
+<Button disabled>Default</Button>
+<Button disabled variant="outline">Outline</Button>
+<Button disabled variant="ghost">Ghost</Button>
+<Button disabled to={"/dashboard"}>Link Button</Button>
+<Button disabled to={"/dashboard"} size="icon" variant="outline"><LayoutTemplate className='h-5 w-5'/></Button>
+<Button disabled variant="danger">Danger</Button>
+<Button disabled variant="success">Success</Button>
+```
+</Tabs.Tab>
+</Tabs>
+
+
+{/* mdx import */}
+import ComponentInstallation from '@/components/docs/mdx/component-installation.mdx';
+
+<ComponentInstallation fileName="Button" folderName="button" />
+
 
 <Tabs items={['jsx','css']}>
 <Tabs.Tab>
 ```jsx showLineNumbers filename="Button.jsx" copy
 import React from "react";
-import styles from "./styles.module.css";
+import styles from "./Button.module.css";
 import { Link } from "react-router-dom";
 
 export const Button = ({
   children,
   classname,
-  varient = "default",
+  variant = "default",
   size = "default",
-  ...props
-}) => {
-  const stylesVarientMap = {
-    default: styles.default,
-    outline: styles.outline,
-    ghost: styles.ghost,
-    danger: styles.danger,
-    success: styles.success,
-  };
-  const stylesSizeMap = {
-    default: styles.defaultSize,
-    icon: styles.iconSize,
-  };
-
-  return (
-    <button
-      className={`${styles.button} ${stylesSizeMap[size]} ${stylesVarientMap[varient]} ${classname}`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
-
-export const LinkButton = ({
-  children,
-  classname,
-  varient = "default",
-  size = "default",
+  disabled = false,
   to,
   ...props
 }) => {
-  const stylesVarientMap = {
+  const stylesVariantMap = {
     default: styles.default,
     outline: styles.outline,
     ghost: styles.ghost,
@@ -109,20 +111,33 @@ export const LinkButton = ({
     icon: styles.iconSize,
   };
 
+  const classNames = `${styles.button} ${stylesSizeMap[size]} ${
+    stylesVariantMap[variant]
+  } ${classname} ${disabled && "disabled"}`;
+
+  if (to) {
+    return (
+      <Link
+        to={to}
+        tabIndex={disabled ? "-1" : "false"}
+        className={classNames}
+        {...props}
+      >
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <Link
-      to={to}
-      className={`${styles.button} ${stylesSizeMap[size]} ${stylesVarientMap[varient]} ${classname}`}
-      {...props}
-    >
+    <button disabled={disabled} className={classNames} {...props}>
       {children}
-    </Link>
+    </button>
   );
 };
 ```
 </Tabs.Tab>
 <Tabs.Tab>
-```css showLineNumbers filename="styles.module.css" copy
+```css showLineNumbers filename="Button.module.css" copy
 .button {
   white-space: nowrap;
   padding: 0.5rem 1.1rem;
@@ -131,24 +146,25 @@ export const LinkButton = ({
   display: flex;
   align-items: center;
   gap: 0.7em;
-  border-radius: var(--radius);
+  border-radius: var(--radius-full);
   cursor: pointer;
   transition: background-color 250ms;
   text-decoration: none;
-  font-size: inherit;
+  font-size: 16px;
   font-family: var(--ff-poppins);
+  overflow: hidden;
 }
-/* default varient */
+/* default variant */
 .default {
   background-color: hsl(var(--secondary));
   border: none;
-  color: hsl(var(--text-forground));
+  color: hsl(var(--white));
 }
 .default:hover {
   background-color: hsl(var(--secondary), 0.8);
 }
 
-/* outline varient */
+/* outline variant */
 .outline {
   border: 1px solid hsl(var(--border));
   background-color: transparent;
@@ -159,7 +175,7 @@ export const LinkButton = ({
   background-color: hsl(var(--border), 0.2);
 }
 
-/* ghost varient */
+/* ghost variant */
 .ghost {
   border: none;
   background-color: transparent;
@@ -170,26 +186,38 @@ export const LinkButton = ({
   background-color: hsl(var(--border), 0.3);
 }
 
-/* danger varient */
+.ghost:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--text), 0.3);
+}
+
+/* danger variant */
 .danger {
   background-color: hsl(var(--danger));
   border: none;
-  color: hsl(var(--text-forground));
+  color: hsl(var(--white));
 }
 
 .danger:hover {
-  background-color: hsl(var(--danger), 0.7);
+  background-color: hsl(var(--danger), 0.8);
 }
 
-/* success varient */
+.danger:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--danger), 0.5);
+}
+
+/* success variant */
 .success {
   background-color: hsl(var(--success));
   border: none;
-  color: hsl(var(--text-forground));
+  color: hsl(var(--white));
 }
 
 .success:hover {
-  background-color: hsl(var(--success), 0.7);
+  background-color: hsl(var(--success), 0.8);
+}
+
+.success:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--success), 0.5);
 }
 
 /* iconSize */
@@ -203,6 +231,17 @@ export const LinkButton = ({
   align-items: center;
 }
 
+.button:disabled,
+.button[disabled] {
+  opacity: 0.5;
+}
+
+.button:disabled,
+.button[disabled] {
+  pointer-events: none;
+  opacity: 0.6; /* Makes it look faded */
+}
+
 @media screen and (max-width: 750px) {
   .button {
     font-size: 0.8rem;
@@ -214,3 +253,9 @@ export const LinkButton = ({
 ```
 </Tabs.Tab>
 </Tabs>
+
+### props
+
+- variants: `default`,`outline`,`ghost`,`danger`,`success`
+
+- sizes: `default`,`icon`

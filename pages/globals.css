@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,8 +11,28 @@
   box-sizing: border-box;
 } */
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 /* css variables used in components */
 .preview-wrapper {
+  --text: 267, 30%, 20%;
+  --background: 263, 40%, 96%;
+  --primary: 266, 40%, 38%;
+  --secondary: 267, 46%, 51%;
+  --accent: 267, 51%, 44%;
+  --muted: 267 20% 35%;
+  --border: 267, 25%, 50%;
+  --danger: 0, 84.2%, 60.2%;
+  --success: 134, 51%, 36%;
+  --white: 255, 100%, 100%;
+  --black: 255, 0%, 0%;
+
+  --radius: 100px;
+  --radius-full: 9999px;
+
+  --duration-fast: 250ms;
+  --duration-slow: 700ms;
+
   /* default font */
   --ff-poppins: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
   font-family: var(--ff-poppins);
@@ -26,6 +44,16 @@
 }
 
 .preview-wrapper.dark {
+  --text: 267, 27%, 94%;
+  --background: 266, 37%, 4%;
+  --primary: 266, 40%, 72%;
+  --secondary: 267, 46%, 34%;
+  --accent: 267, 51%, 56%;
+  --muted: 267 7% 35%;
+  --border: 267, 15%, 30%;
+  --danger: 0, 62.8%, 30.6%;
+  --success: 130, 46%, 30%;
+
   background-color: hsl(var(--background));
   color: hsl(var(--text));
 }
@@ -40,8 +68,13 @@
 .preview-wrapper a:focus,
 .preview-wrapper input:focus,
 .preview-wrapper textarea:focus {
-  outline: 2px solid hsl(var(--primary));
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 1px 3px hsl(var(--secondary), 0.5);
+}
+
+.preview-wrapper .disabled {
+  pointer-events: none;
+  opacity: 0.6; /* Makes it look faded */
 }
 
 /* 
@@ -150,7 +183,7 @@ body {
 }
 
 .nextra-steps h3::before {
-  background-color: hsl(var(--secondary)) !important;
+  background-color: hsl(var(--border)) !important;
   color: hsl(var(--text));
 }
 

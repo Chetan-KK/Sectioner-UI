@@ -6,24 +6,25 @@
   display: flex;
   align-items: center;
   gap: 0.7em;
-  border-radius: var(--radius);
+  border-radius: var(--radius-full);
   cursor: pointer;
   transition: background-color 250ms;
   text-decoration: none;
-  font-size: inherit;
+  font-size: 16px;
   font-family: var(--ff-poppins);
+  overflow: hidden;
 }
-/* default varient */
+/* default variant */
 .default {
   background-color: hsl(var(--secondary));
   border: none;
-  color: hsl(var(--text-forground));
+  color: hsl(var(--white));
 }
 .default:hover {
   background-color: hsl(var(--secondary), 0.8);
 }
 
-/* outline varient */
+/* outline variant */
 .outline {
   border: 1px solid hsl(var(--border));
   background-color: transparent;
@@ -34,7 +35,7 @@
   background-color: hsl(var(--border), 0.2);
 }
 
-/* ghost varient */
+/* ghost variant */
 .ghost {
   border: none;
   background-color: transparent;
@@ -45,26 +46,38 @@
   background-color: hsl(var(--border), 0.3);
 }
 
-/* danger varient */
+.ghost:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--text), 0.3);
+}
+
+/* danger variant */
 .danger {
   background-color: hsl(var(--danger));
   border: none;
-  color: hsl(var(--text-forground));
+  color: hsl(var(--white));
 }
 
 .danger:hover {
-  background-color: hsl(var(--danger), 0.7);
+  background-color: hsl(var(--danger), 0.8);
 }
 
-/* success varient */
+.danger:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--danger), 0.5);
+}
+
+/* success variant */
 .success {
   background-color: hsl(var(--success));
   border: none;
-  color: hsl(var(--text-forground));
+  color: hsl(var(--white));
 }
 
 .success:hover {
-  background-color: hsl(var(--success), 0.7);
+  background-color: hsl(var(--success), 0.8);
+}
+
+.success:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--success), 0.5);
 }
 
 /* iconSize */
@@ -76,6 +89,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.button:disabled,
+.button[disabled] {
+  opacity: 0.5;
+}
+
+.button:disabled,
+.button[disabled] {
+  pointer-events: none;
+  opacity: 0.6; /* Makes it look faded */
 }
 
 @media screen and (max-width: 750px) {

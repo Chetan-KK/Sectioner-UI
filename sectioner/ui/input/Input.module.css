@@ -1,0 +1,90 @@
+/* Base input styles */
+.input {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  font-family: var(--font-family);
+  border: 1px solid transparent;
+  transition: border-color var(--duration-fast),
+    background-color var(--duration-fast);
+  color: hsl(var(--text));
+  background-color: hsl(var(--background));
+}
+
+/* Variants */
+.default {
+  border: 1px solid hsl(var(--border), 0.7);
+  background-color: hsl(var(--secondary), 0.2);
+  color: hsl(var(--text));
+}
+
+.outline {
+  border: 1px solid hsl(var(--border));
+  background-color: transparent;
+  color: hsl(var(--primary));
+}
+
+.ghost {
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: hsl(var(--text));
+}
+.ghost:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--text), 0.3);
+}
+
+.ghost:hover {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border), 0.3);
+}
+
+.ghost:disabled {
+  border: none;
+}
+
+.danger {
+  border: 1px solid hsl(var(--danger));
+  background-color: hsl(var(--danger), 0.1);
+  color: hsl(var(--danger));
+}
+
+.danger:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--danger), 0.5);
+}
+
+.success {
+  border: 1px solid hsl(var(--success));
+  background-color: hsl(var(--success), 0.1);
+  color: hsl(var(--success));
+}
+
+.success:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--success), 0.5);
+}
+
+/* Sizes */
+.defaultSize {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.smallSize {
+  font-size: 0.875rem;
+  padding: 0.3rem 0.8rem;
+}
+
+.largeSize {
+  font-size: 1.125rem;
+  padding: 0.7rem 1.2rem;
+}
+
+.input:disabled {
+  pointer-events: none;
+  opacity: 0.6; /* Makes it look faded */
+}
+
+@media screen and (max-width: 750px) {
+  .input {
+    font-size: 0.9rem;
+  }
+}

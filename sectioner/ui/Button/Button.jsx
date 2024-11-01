@@ -1,44 +1,16 @@
 import React from "react";
-import styles from "./styles.module.css";
+import styles from "./Button.module.css";
 
 export const Button = ({
   children,
   classname,
-  varient = "default",
+  variant = "default",
   size = "default",
-  ...props
-}) => {
-  const stylesVarientMap = {
-    default: styles.default,
-    outline: styles.outline,
-    ghost: styles.ghost,
-    danger: styles.danger,
-    success: styles.success,
-  };
-  const stylesSizeMap = {
-    default: styles.defaultSize,
-    icon: styles.iconSize,
-  };
-
-  return (
-    <button
-      className={`${styles.button} ${stylesSizeMap[size]} ${stylesVarientMap[varient]} ${classname}`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
-
-export const LinkButton = ({
-  children,
-  classname,
-  varient = "default",
-  size = "default",
+  disabled = false,
   to,
   ...props
 }) => {
-  const stylesVarientMap = {
+  const stylesVariantMap = {
     default: styles.default,
     outline: styles.outline,
     ghost: styles.ghost,
@@ -50,12 +22,25 @@ export const LinkButton = ({
     icon: styles.iconSize,
   };
 
+  const classNames = `${styles.button} ${stylesSizeMap[size]} ${
+    stylesVariantMap[variant]
+  } ${classname} ${disabled && "disabled"}`;
+
+  if (to) {
+    return (
+      <span
+        to={to}
+        tabIndex={disabled ? "-1" : "0"}
+        className={classNames}
+        {...props}
+      >
+        {children}
+      </span>
+    );
+  }
+
   return (
-    <button
-      to={to}
-      className={`${styles.button} ${stylesSizeMap[size]} ${stylesVarientMap[varient]} ${classname}`}
-      {...props}
-    >
+    <button disabled={disabled} className={classNames} {...props}>
       {children}
     </button>
   );

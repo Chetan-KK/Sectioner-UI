@@ -1,8 +1,11 @@
 export default {
-  "navbar": {
-    "title": "Navbar"
+  navbar: {
+    title: "Navbar",
   },
-  "button": {
-    "title": "Button"
-  }
-}
+  button: {
+    title: "Button",
+  },
+  input: {
+    title: "Input",
+  },
+};

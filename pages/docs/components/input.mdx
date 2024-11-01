@@ -1,0 +1,203 @@
+# Input
+
+## Overview
+
+- Input Field
+
+import { Callout } from 'nextra/components';
+
+### preview
+
+import { Tabs } from "nextra/components";
+import ComponentWrapper from "@/components/docs/component-wrapper";
+
+import {
+  Input
+} from "@/sectioner/ui/input/Input";
+
+#### Normal Inputs
+
+<Tabs items={['Preview','Use']}>
+<Tabs.Tab>
+<ComponentWrapper classname="gap-3 flex-wrap">
+        <Input size="small" placeholder="Search here..." />
+        <Input variant="outline" placeholder="Search here..." />
+        <Input size="large" placeholder="Search here..." />
+        <Input variant="danger" placeholder="Search here..." />
+        <Input variant="success" placeholder="Search here..." />
+</ComponentWrapper>
+</Tabs.Tab>
+<Tabs.Tab>
+```jsx showLineNumbers filename="App.jsx" copy
+<Input size="small" placeholder="Search here..." />
+<Input variant="outline" placeholder="Search here..." />
+<Input size="large" placeholder="Search here..." />
+<Input variant="danger" placeholder="Search here..." />
+<Input variant="success" placeholder="Search here..." />
+```
+</Tabs.Tab>
+</Tabs>
+
+#### Disabled Inputs
+
+- Use `disabled` to disable Inputs.
+
+<Tabs items={['Preview','Use']}>
+<Tabs.Tab>
+<ComponentWrapper classname="gap-3 flex-wrap">
+        <Input disabled value={"Sectioner UI"} size="small" placeholder="Search here..." />
+        <Input disabled value={"Sectioner UI"} variant="outline" placeholder="Search here..." />
+        <Input disabled value={"Sectioner UI"} size="large" placeholder="Search here..." />
+        <Input disabled value={"Sectioner UI"} variant="danger" placeholder="Search here..." />
+        <Input disabled value={"Sectioner UI"} variant="success" placeholder="Search here..." />
+</ComponentWrapper>
+</Tabs.Tab>
+<Tabs.Tab>
+```jsx showLineNumbers filename="App.jsx" copy
+<Input disabled value={"Sectioner UI"} size="small" placeholder="Search here..." />
+<Input disabled value={"Sectioner UI"} variant="outline" placeholder="Search here..." />
+<Input disabled value={"Sectioner UI"} size="large" placeholder="Search here..." />
+<Input disabled value={"Sectioner UI"} variant="danger" placeholder="Search here..." />
+<Input disabled value={"Sectioner UI"} variant="success" placeholder="Search here..." />
+```
+</Tabs.Tab>
+</Tabs>
+
+{/* mdx import */}
+import ComponentInstallation from '@/components/docs/mdx/component-installation.mdx';
+
+<ComponentInstallation fileName="Input" folderName="input" />
+
+<Tabs items={['jsx','css']}>
+<Tabs.Tab>
+```jsx showLineNumbers filename="Input.jsx" copy
+import React from "react";
+import styles from "./Input.module.css";
+
+export const Input = ({
+  className,
+  variant = "default",
+  size = "default",
+  ...props
+}) => {
+  const stylesVariantMap = {
+    default: styles.default,
+    outline: styles.outline,
+    ghost: styles.ghost,
+    danger: styles.danger,
+    success: styles.success,
+  };
+
+  const stylesSizeMap = {
+    default: styles.defaultSize,
+    small: styles.smallSize,
+    large: styles.largeSize,
+  };
+
+  const classNames = `${styles.input} ${stylesSizeMap[size]} ${stylesVariantMap[variant]} ${className}`;
+
+  return <input className={classNames} {...props} />;
+};
+```
+</Tabs.Tab>
+<Tabs.Tab>
+```css showLineNumbers filename="Input.module.css" copy
+/* Base input styles */
+.input {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  font-family: var(--font-family);
+  border: 1px solid transparent;
+  transition: border-color var(--duration-fast),
+    background-color var(--duration-fast);
+  color: hsl(var(--text));
+  background-color: hsl(var(--background));
+}
+
+/* Variants */
+.default {
+  border: 1px solid hsl(var(--border), 0.7);
+  background-color: hsl(var(--secondary), 0.2);
+  color: hsl(var(--text));
+}
+
+.outline {
+  border: 1px solid hsl(var(--border));
+  background-color: transparent;
+  color: hsl(var(--primary));
+}
+
+.ghost {
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: hsl(var(--text));
+}
+.ghost:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--text), 0.3);
+}
+
+.ghost:hover {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border), 0.3);
+}
+
+.ghost:disabled {
+  border: none;
+}
+
+.danger {
+  border: 1px solid hsl(var(--danger));
+  background-color: hsl(var(--danger), 0.1);
+  color: hsl(var(--danger));
+}
+
+.danger:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--danger), 0.5);
+}
+
+.success {
+  border: 1px solid hsl(var(--success));
+  background-color: hsl(var(--success), 0.1);
+  color: hsl(var(--success));
+}
+
+.success:focus {
+  box-shadow: 0 0 1px 3px hsl(var(--success), 0.5);
+}
+
+/* Sizes */
+.defaultSize {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.smallSize {
+  font-size: 0.875rem;
+  padding: 0.3rem 0.8rem;
+}
+
+.largeSize {
+  font-size: 1.125rem;
+  padding: 0.7rem 1.2rem;
+}
+
+.input:disabled {
+  pointer-events: none;
+  opacity: 0.6; /* Makes it look faded */
+}
+
+@media screen and (max-width: 750px) {
+  .input {
+    font-size: 0.9rem;
+  }
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### props
+
+- variants: `default`,`outline`,`ghost`,`danger`,`success`
+
+- sizes: `default`,`small`,`large`

@@ -1,6 +1,5 @@
 import { Expand, Flag } from "lucide-react";
 import { useTheme } from "nextra-theme-docs";
-import { Button } from "nextra/components";
 import React, { ReactNode, useEffect, useState } from "react";
 
 type Props = {

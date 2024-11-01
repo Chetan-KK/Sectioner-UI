@@ -10,6 +10,7 @@ import { NextjsIcon, ReactjsIcon, VitejsIcon } from '@/assets/icons/Icons';
   <Cards.Card icon={<ReactjsIcon />} title="React JS" href="/docs/setup/react" style={{fill:"hsl(var(--text))"}} />
   <Cards.Card icon={<><VitejsIcon />+<ReactjsIcon /></>} title="Vite + React" href="/docs/setup/vite-react" style={{fill:"hsl(var(--text))"}} />
   <Cards.Card icon={<NextjsIcon />} title="Next JS" href="/docs/setup/next" style={{fill:"hsl(var(--text))"}} />
+    {/* <Cards.Card icon={<NextjsIcon />} title="HTML CSS" href="/docs/setup/next" style={{fill:"hsl(var(--text))"}} /> */}
   {/* <Cards icon={<TailwindIcon/>} title="Tailwind CSS" href="/docs/setup/tailwind" style={{fill:"hsl(var(--text))"}}/> */}
 </Cards>
 
@@ -20,9 +21,15 @@ To get started with Sectioner UI, follow these steps:
 
 import CssVariablesReact from '@/components/docs/mdx/css-variables-react.mdx';
 
-<CssVariablesReact filePath="hi" />
+<CssVariablesReact />
 
 ### Next Steps
 
 - Refer to the specific setup guides for [React](setup/react) or [Next.js](setup/next) for detailed instructions on integrating Sectioner UI into your project.
 - Explore the component documentation to start using and customizing the UI components in your application.
+
+import { Callout } from 'nextra/components';
+ 
+<Callout type="warning" emoji="💡">
+**note**: It's recommended to create a separate folder for each section or component within the `sectioner` directory.
+</Callout>
